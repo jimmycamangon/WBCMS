@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +29,7 @@
                 <li><a href="#instructions">Instructions</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="index.php">Login</a></li>
+                <li><a href="index.php">Sign In</a></li>
             </ul>
         </div>
         <div id="mySidenav" class="sidenav">
@@ -47,7 +46,7 @@
                 <hr>
                 <li><a href="#about">About</a></li>
                 <hr>
-                <li><a href="index.php">Login</a></li>
+                <li><a href="index.php">Sign In</a></li>
             </ul>
             </div>
           </div>
