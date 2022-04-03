@@ -92,7 +92,7 @@ class User {
                 $update = $this->db->query($query);
             }else{
                 //Insert user data
-                $query = "INSERT INTO ".$this->userTbl." SET oauth_provider = '".$userData['oauth_provider']."', oauth_id = '".$userData['oauth_id']."', first_name = '".$userData['first_name']."', last_name = '".$userData['last_name']."', email = '".$userData['email']."', gender = '".$userData['gender']."', picture = '".$userData['picture']."',`status`='not_verified' ";
+                $query = "INSERT INTO ".$this->userTbl." SET oauth_provider = '".$userData['oauth_provider']."', oauth_id = '".$userData['oauth_id']."', name = '".$userData['first_name']."' '".$userData['last_name']."', first_name = '".$userData['first_name']."', last_name = '".$userData['last_name']."', email = '".$userData['email']."', gender = '".$userData['gender']."', picture = '".$userData['picture']."',`status`='not_verified' ";
                 $this->db->query($query);
                 $_SESSION['status'] = "Active";
                 $_SESSION['user_id']      = $userData['oauth_id'];
