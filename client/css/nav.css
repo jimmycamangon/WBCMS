@@ -1,0 +1,98 @@
+/* ==================================================================================
+  2. Head Navigation                                                 
+=====================================================================================*/
+
+.sidenav2 {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    background-color: #02051E;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav2 a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav2 a:hover {
+    color: #f1f1f1;
+  }
+  .sidenav , .mobile-nav{
+    display: none;
+  }
+  .open-side-button {
+    display: none;
+  }
+  .nav-container {
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+  }
+  .nav-container ul, li {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .nav-container .logo h1{
+    padding-left: 1em;
+  }
+  .nav-container h1 {
+    color: var(--primary-color);
+    padding-top: 0.5em;
+    font-size: var(--font-size-logo);
+    transition: 120ms;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .nav-container h1:hover {
+      color: var(--color-navitems);
+  }
+  .nav-container .closebtn2 {
+    display: none;
+    font-size: 5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    transition: 120ms;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .nav-container a {
+    margin: 1em;
+    padding-right: 1em;
+    text-decoration: none;
+    color: var(--primary-color);
+    padding-top: 2em;
+  }
+  .nav-container a:after {
+    content: '';
+    display: block;
+    background-color: var(--primary-color);
+    width: 0;
+    height: 2px;
+    transition: width .3s;
+  }
+  .nav-container a:hover:after,
+  .nav-container a:hover, 
+  .nav-container a:focus {
+    text-decoration: none;
+    width: 100%;
+    color: var(--color-navitems);
+  }
+  .icon {
+    display: none;
+  }
+  .nav-button {
+    display: none;
+  }

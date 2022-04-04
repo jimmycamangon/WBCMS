@@ -19,46 +19,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>WBCMS</title>
 </head>
+
 <body>
     <div class="body__container" id="body__container">
     <section id="home">
-        <div class="nav-container">
-            <div class="logo">
-                <h1>
-				<span class="" onclick="openNav3()">&#9776;</span>
-                </h1>
-            </div>
-            <ul>
-                <li><a href="#"><i class="fa fa-bell" style="font-size:20px;" aria-hidden="true"></i></a></li>
-                <li><a href="../logout.php">Logout</a></li>
-            </ul>
-        </div>
-        <div id="mySidenav2" class="sidenav2">
-            <div class="side-container">
-            <a href="javascript:void(0)" class="closebtn2" onclick="closeNav3()">&times;</a>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <hr>
-                <li><a href="#updates">News</a></li>
-                <hr>
-                <li><a href="#instructions">Instructions</a></li>
-                <hr>
-                <li><a href="#features">Features</a></li>
-                <hr>
-                <li><a href="#about">About</a></li>
-                <hr>
-                <li><a href="index.php">Sign In</a></li>
-            </ul>
-            </div>
-          </div>
-          <div class="mobile-nav">
-            <h1>
-                WBCMS
-            </h1>
-            <span class="open-side-button" onclick="openNav()">&#9776;</span>
-        </div>
-
-        <div class="home-container">
+        <div class="home-container" id="home-container">
             <div class="left-container">
                 <h1>
                     Request Online Now!
@@ -68,8 +33,10 @@
                     properties, hotlines and complainance with a help
                     of assistance.</p>
                     <button class="GS" data-toggle="modal" data-target="#myModal"><span>Get Started </span></button>
-            </div>
+
+				</div>
         </div>
+		<a href="../logout.php">Logout</a>
     </section>
     <section id="updates">
     <div class="head-update">

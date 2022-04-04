@@ -153,11 +153,14 @@ function closeNav2() {
 
 function openNav3() {
   document.getElementById("mySidenav2").style.width = "250px";
-  document.getElementById("body__container").style.backgroundColor = "rgba(0,0,0,0.4)";
+  document.getElementById("body__container").style.marginLeft = "250px";
+  document.getElementById("openNav").style.display = "none";
+  document.getElementById("closeNav").style.display = "block";
 }
 
 function closeNav3() {
   document.getElementById("mySidenav2").style.width = "0";
   document.getElementById("body__container").style.marginLeft= "0";
-  document.body.style.backgroundColor = "white";
+  document.getElementById("closeNav").style.display = "none";
+  document.getElementById("openNav").style.display = "block";
 }
