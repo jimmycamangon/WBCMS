@@ -230,6 +230,32 @@ section#home {
     }
   }
 
+  .side-nav-open {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 5em;
+  }
+    /*Curve  */
+    .custom-shape-divider-bottom-1649240167 {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+  }
+  
+  .custom-shape-divider-bottom-1649240167 svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 93px;
+  }
+  
+  .custom-shape-divider-bottom-1649240167 .shape-fill {
+      fill: #FFFFFF;
+  }
 /* ==================================================================================
   4. Update Section                                                    
 =====================================================================================*/

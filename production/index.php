@@ -1,15 +1,10 @@
-<?php 
-    session_start();
-    include '../includes/session.php';
-    include '../includes/conn.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="index.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/Logo.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -26,7 +21,7 @@
             <div class="logo">        
             </div>
             <ul>
-                <li><a href="../logout.php">Log out</a></li>
+                <li><a href="index.php">Log out</a></li>
             </ul>
         </div>
         <div id="mySidenav" class="sidenav">

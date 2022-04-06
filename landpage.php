@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/landpage.css">
+    <link rel="stylesheet" href="css/index3.css">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/Logo.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -74,6 +74,13 @@
             <img src="assets/img/Logo.png" alt="">
             </div>
         </div>
+        <div class="curve">
+        <div class="custom-shape-divider-bottom-1649240167">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z" class="shape-fill"></path>
+    </svg>
+</div>
+            </div>
     </section>
     <section id="updates">
     <div class="head-update">
