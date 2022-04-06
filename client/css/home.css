@@ -133,12 +133,12 @@ body{
 .left-container h1 {
   color: var(--primary-color);
   font-size: var(--font-size-h1);
-  font-size: max(2.5vw, 50px);
+  font-size: min(max(20px, 5vw), 52px);
   font-weight: bold;
 }
 .left-container p {
   color: var(--primary-color);
-  font-size: max(1.3vw, 10px);
+  font-size: max(1.5vw, 10px);
   padding-top: 1em;
   max-width: 70px auto;
 }
@@ -146,12 +146,14 @@ body{
 /* Button */
 .home-buttons {
   padding-top: 2em;
+  
 }
 .GS {
   background-color: #03C3F5;
-  width: 200px;
+  width: 40%;
+  min-width: 30%;
   height: 45px;
-  border-radius: 10px;
+  border-radius: 20px;
   border: none;
   cursor: pointer;
   color: #fff;
@@ -164,6 +166,7 @@ body{
   display: inline-block;
   position: relative;
   transition: 0.5s;
+  font-size: min(max(5px, 5vw), 20px);
 }
 .GS span:after {
   content: '\00bb';
@@ -298,12 +301,7 @@ section#home {
     display: none;
   }
   .left-container h1{
-    font-size: max(2.5vw, 40px);
     padding-top: 2em;
-    padding-bottom: 0.5em;
-  }
-  .left-container p{
-    font-size: max(1.5vw, 5px);
   }
   .right-container img{
     width: 200px;
