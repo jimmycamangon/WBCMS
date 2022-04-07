@@ -3,15 +3,7 @@
   1. Global Styles
   2. Head Navigation
   3. Home Section
-  4. Body Navigation
-  5. Update Section
-  6. Instruction Section
-      -Register Section
-      -View Section
-      -Fill up Form Section
-      -Generate Receipt Section
-      -Waiting Process
-  7. Features Section
+
 */
 
 
@@ -56,9 +48,7 @@ body{
 /* ==================================================================================
   2. Head Navigation                                                 
 =====================================================================================*/
-.sidenav , .mobile-nav{
-  display: none;
-}
+
 .open-side-button {
   display: none;
 }
@@ -66,7 +56,7 @@ body{
   top: 0;
   display: flex;
   justify-content: space-between;
-  height: 10%
+  height: 10%;
 }
 .nav-container ul, li {
   display: flex;
@@ -75,19 +65,26 @@ body{
   justify-content: center;
   text-decoration: none;
 }
-.nav-container .logo h1{
-  padding-left: 1em;
+.nav-container .logo{
+  display: flex;
+  padding-left: 2em;
+  justify-content: center;
+  align-items: center;
 }
-.nav-container h1 {
-  color: var(--color-logo);
-  padding-top: 0.5em;
-  font-size: var(--font-size-logo);
-  transition: 120ms;
-  font-weight: bold;
-  cursor: pointer;
-}
-.nav-container h1:hover {
+.nav-container span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--primary-color);
+  background-color: #03C3F5;
+  width: 50px;
+  font-size: min(5vw,10px);
+  border-radius: 5px;
+  transition: 1s;
+} 
+ .nav-container span:hover,
+  .nav-container span:focus {
+  transform: translateY(-0.5em);
 }
 .nav-container a {
   margin: 1em;
@@ -95,6 +92,7 @@ body{
   text-decoration: none;
   color: var(--primary-color);
   padding-top: 2em;
+  font-size: max(1vw, 10px);
 }
 .nav-container a:after {
   content: '';
@@ -122,7 +120,7 @@ body{
 =====================================================================================*/
 .home-container {
   width: 100%;
-  height: 70vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,15 +128,15 @@ body{
   padding: 1.5em;
 }
 
-.left-container h1 {
-  color: var(--primary-color);
-  font-size: var(--font-size-h1);
-  font-size: min(max(20px, 5vw), 52px);
-  font-weight: bold;
+.center-container img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  padding-bottom: 2em;
 }
-.left-container p {
+.center-container p {
   color: var(--primary-color);
-  font-size: max(1.5vw, 10px);
+  font-size: max(1.5vw, 15px);
   padding-top: 1em;
   max-width: 70px auto;
 }
@@ -150,8 +148,8 @@ body{
 }
 .GS {
   background-color: #03C3F5;
-  width: 40%;
-  min-width: 30%;
+  width: 200px;
+  max-width: 80%;
   height: 45px;
   border-radius: 20px;
   border: none;
@@ -166,7 +164,7 @@ body{
   display: inline-block;
   position: relative;
   transition: 0.5s;
-  font-size: min(max(5px, 5vw), 20px);
+  font-size: min(max(20px, 3vw), 20px);
 }
 .GS span:after {
   content: '\00bb';
@@ -193,21 +191,80 @@ section {
     /* Scroll Snap */
 }
 section#home {
-    background-color: #02051E;
+  background: url('../../assets/img/home-bg.svg') no-repeat center center/cover;
     width: 100%;
     max-width: 100%;
     height: auto;
   }
 
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #F0FFFF;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
 
-  .side-nav-open {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 50px;
-    padding: 5em;
-  }
+.close-button a {
+  text-decoration: none;
+  text-align: center;
+  font-size: 25px;
+  color: var(--primary-color);
+  display: block;
+  transition: 0.3s;
+}
+.side-buttons span {
+  text-decoration: none;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 1em;
+  color: #000;
+  display: block;
+  transition: 0.3s;
+}
+.side-buttons a {
+  text-decoration: none;
+  text-align: center;
+  margin: 2em;
+  font-size: 2rem;
+  color: #000;
+  display: block;
+  transition: 0.3s;
+}
+
+.side-buttons a:hover {
+  color: #f1f1f1;
+  background-color: #03C3F5;
+  border-radius: 5px;
+  text-decoration: none;
+  height: 30px;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  width: 50px;
+  margin-top: 0.1em;
+  font-size: 36px;
+  border-radius: 5px;
+  background-color: #03C3F5;
+  transition: 0.3s;
+  height: 50px;
+}
+.sidenav .closebtn:hover,
+.sidenav .closebtn:focus{
+  background-color: #87cefa;
+  text-decoration: none;
+}
+
     /*Curve  */
+    
   .custom-shape-divider-bottom-1649083328 {
     bottom: 0;
     left: 0;
@@ -225,6 +282,7 @@ section#home {
   .custom-shape-divider-bottom-1649083328 .shape-fill {
     fill: #FFFFFF;
   }
+  
 /* ==================================================================================
   4. Update Section                                                    
 =====================================================================================*/
@@ -297,18 +355,6 @@ section#home {
   .home-container {
     flex-direction: column;
   }
-  .nav-container {
-    display: none;
-  }
-  .left-container h1{
-    padding-top: 2em;
-  }
-  .right-container img{
-    width: 200px;
-    max-width: 100%;
-    height: auto;
-    padding-left: 4em;
-  }
   .home-buttons {
     display: flex;
     flex-direction: column;
@@ -316,4 +362,6 @@ section#home {
     align-items: center;
     gap: 1em;
   }
+
+
 }

@@ -1,7 +1,7 @@
 <?php 
     session_start();
-    include '../includes/session.php';
     include '../includes/conn.php';
+    include '../includes/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,49 +20,37 @@
     <title>WBCMS</title>
 </head>
 <body>
+
+        <div id="mySidenav" class="sidenav">
+        <div class="close-button">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        </div>
+        <div class="side-buttons">
+        <span style="color:#03C3F5;font-weight: bold;font-size: 3rem;">WBCMS</span>
+        <hr>
+        <a href="#">Home</a>
+        <a href="#">Instructions</a>
+        <a href="#">Requests</a>
+        <a href="#">Contact</a>
+        </div>
+        </div>
     <div class="body__container">
     <section id="home">
         <div class="nav-container">
             <div class="logo">        
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
             </div>
             <ul>
-                <li><a href="../logout.php">Log out</a></li>
+            <li><a href="../logout.php">Log out</a></li>
             </ul>
         </div>
-        <div id="mySidenav" class="sidenav">
-            <div class="side-container">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <hr>
-                <li><a href="#updates">News</a></li>
-                <hr>
-                <li><a href="#instructions">Instructions</a></li>
-                <hr>
-                <li><a href="#features">Features</a></li>
-                <hr>
-                <li><a href="#about">About</a></li>
-                <hr>
-                <li><a href="index.php">Sign In</a></li>
-            </ul>
-            </div>
-          </div>
-          <div class="mobile-nav">
-            <span class="open-side-button" onclick="openNav()">&#9776;</span>
-        </div>
-
         <div class="home-container">
-            <div class="left-container">
-                <h1>
-                    Verify your account
-                </h1>
+            <div class="center-container">
+                <img src="../assets/img/SVG/Greet.jpg" alt="">
                 <p>Kindly complete all the information including 2 valid id to access all system's feature.</p>
                 <div class="home-buttons">
-                    <button class="GS" data-toggle="modal" data-target="#myModal"><span>Verify </span></button>
+                    <button class="GS"><span> Update </span></button>
                 </div>
-            </div>
-            <div class="right-container">
-            <img src="assets/img/Logo.png" alt="">
             </div>
         </div>
         <div class="curve">
@@ -73,23 +61,22 @@
               <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
             </svg>
             </div>
+        </div>
     </section>
     <section id="features">
   <h1>Features</h1>
     </section>
 </div>
 
-<script src="landpage.js"></script>
+
 </body>
 </html>
 <script>
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-  }
-  
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("body__container").style.marginLeft= "0";
-    document.body.style.backgroundColor = "white";
-  }
-  </script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
