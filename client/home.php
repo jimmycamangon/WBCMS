@@ -41,7 +41,8 @@
             <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
             </div>
             <ul>
-            <li><a href="../logout.php">Log out</a></li>
+            <li><a href="../logout.php" class="logout"><img class="profile-picture" src="<?php echo $_SESSION['picture'];?>" style="width: 30px;border-radius: 20px;margin-right: 1em;"/><?php echo $_SESSION['user_fname'] ?> <?php echo $_SESSION['user_lname'] ?></a></li>
+            <li><a href="../logout.php" class="logout">Logout</a></li>
             </ul>
         </div>
         <div class="home-container">
@@ -78,5 +79,26 @@ function openNav() {
 
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
+}
+
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
 }
 </script>
