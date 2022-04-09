@@ -40,10 +40,15 @@
             <div class="logo">        
             <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
             </div>
-            <ul>
-            <li><a href="../logout.php" class="logout"><img class="profile-picture" src="<?php echo $_SESSION['picture'];?>" style="width: 30px;border-radius: 20px;margin-right: 1em;"/><?php echo $_SESSION['user_fname'] ?> <?php echo $_SESSION['user_lname'] ?></a></li>
-            <li><a href="../logout.php" class="logout">Logout</a></li>
-            </ul>
+            <div class="dropdown" tabindex="1">
+              <i class="db2" tabindex="1"></i>
+              <a class="dropbtn"><img class="profile-picture" src="<?php echo $_SESSION['picture'];?>" style="width: 30px;border-radius: 20px;margin-right: 1em;"/><?php echo $_SESSION['user_fname'] ?> <?php echo $_SESSION['user_lname'] ?></a>
+               <div class="dropdown-content">
+                  <a href="#">Update</a>
+                  <a href="#">About</a>
+                  <a href="../logout.php">Logout</a>
+               </div>
+            </div>
         </div>
         <div class="home-container">
             <div class="center-container">
