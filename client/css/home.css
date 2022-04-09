@@ -127,7 +127,7 @@ body{
   color: var(--primary-color);
 }
 .dropdown a:hover{
-  color: var(--color-navitems);
+    color: var(--primary-color);
 }
 
 
@@ -151,7 +151,7 @@ body{
   transition: 0.35s ease-out;
 }
 .dropdown-content a:hover {
-  background-color: #eaeaea;
+  background-color: #03C3F5;
 }
 
 /* show dd content */
