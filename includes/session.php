@@ -3,8 +3,7 @@
     include '../User.php';
 
 
-if($_SESSION['status']!="Active")
-{
+if($_SESSION['status']!="Active") {
     header("location:../landpage.php");
 }
 

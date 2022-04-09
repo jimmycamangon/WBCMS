@@ -35,10 +35,11 @@ class OauthUser {
             $qry = "update ".$this->table." set ".$qry_body." WHERE `oauth_provider` = 'facebook' AND `oauth_id` = '".$userInfo['id']."'";
     } else {
       //Insert into table if user not exists in the table
-            $qry = "insert into ".$this->table." set ".$qry_body.",`created_at`='".date("Y-m-d H:i:s")."',`status`='not_verified'";    
+            $qry = "insert into ".$this->table." set ".$qry_body.",`created_at`='".date("Y-m-d H:i:s")."',`verify_status`='not_verified'";    
     }
     $this->db->query($qry);
     $_SESSION['status'] = "Active";
+    $_SESSION['verify_status'];
     $_SESSION['user_id']      = $userInfo['id'];
     $_SESSION['user_name']    = $userInfo['name'];
     $_SESSION['user_fname']   = $userInfo['first_name'];
@@ -79,6 +80,7 @@ class User {
             $prevQuery = "SELECT * FROM ".$this->userTbl." WHERE oauth_provider = '".$userData['oauth_provider']."' AND oauth_id = '".$userData['oauth_id']."'";
             $prevResult = $this->db->query($prevQuery);
             $_SESSION['status'] = "Active";
+            $_SESSION['verify_status'];
             $_SESSION['user_id']      = $userData['oauth_id'];
             $_SESSION['user_fname'] = $userData['first_name'];
             $_SESSION['user_lname'] = $userData['last_name'];
@@ -92,9 +94,10 @@ class User {
                 $update = $this->db->query($query);
             }else{
                 //Insert user data
-                $query = "INSERT INTO ".$this->userTbl." SET oauth_provider = '".$userData['oauth_provider']."', oauth_id = '".$userData['oauth_id']."', name = '".$userData['first_name']."' '".$userData['last_name']."', first_name = '".$userData['first_name']."', last_name = '".$userData['last_name']."', email = '".$userData['email']."', gender = '".$userData['gender']."', picture = '".$userData['picture']."',`status`='not_verified' ";
+                $query = "INSERT INTO ".$this->userTbl." SET oauth_provider = '".$userData['oauth_provider']."', oauth_id = '".$userData['oauth_id']."', name = '".$userData['first_name']."' '".$userData['last_name']."', first_name = '".$userData['first_name']."', last_name = '".$userData['last_name']."', email = '".$userData['email']."', gender = '".$userData['gender']."', picture = '".$userData['picture']."',`verify_status`='not_verified' ";
                 $this->db->query($query);
                 $_SESSION['status'] = "Active";
+                $_SESSION['verify_status'];
                 $_SESSION['user_id']      = $userData['oauth_id'];
                 $_SESSION['user_fname'] = $userData['first_name'];
                 $_SESSION['user_lname'] = $userData['last_name'];
