@@ -15,5 +15,5 @@ $gClient->revokeToken();
 session_destroy();
 
 //Redirect to homepage
-header("Location:index.php");
+header("Location:landpage.php");
 ?>

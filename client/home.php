@@ -44,8 +44,7 @@
               <i class="db2" tabindex="1"></i>
               <a class="dropbtn"><img class="profile-picture" src="<?php echo $_SESSION['picture'];?>" style="width: 30px;border-radius: 20px;margin-right: 1em;"/><?php echo $_SESSION['user_fname'] ?> <?php echo $_SESSION['user_lname'] ?></a>
                <div class="dropdown-content">
-                  <a href="#">Update</a>
-                  <a href="#">About</a>
+                  <a href="#">Update Account</a>
                   <a href="../logout.php">Logout</a>
                </div>
             </div>
@@ -64,10 +63,12 @@
                     <button class="GS"><span> Update </span></button>
                 </div>
         <?php } if($row['verify_status'] == 'processing') { ?>
+                <img src="../assets/img/SVG/processing.jpg" alt="">
                 <p style="font-size: 2rem;">Your account request verification is now in process</p>
                 <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
         <?php } if($row['verify_status'] == 'verified') { ?>
-                <p>Request Now!</p>
+                <img src="../assets/img/Logo.png" id="center_logo" alt="">
+                <h1>Welcome to WBCMS</h1>
                 <div class="home-buttons">
                     <button class="GS"><span> See Features </span></button>
                 </div>
