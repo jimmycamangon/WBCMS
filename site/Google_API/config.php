@@ -28,7 +28,7 @@ $apiConfig = array(
     // OAuth2 Settings, you can get these keys at https://code.google.com/apis/console
     'oauth2_client_id' => '992588464997-j6ckqkd1rj27uceuk47eptrebqgaevjf.apps.googleusercontent.com',
     'oauth2_client_secret' => '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',
-    'oauth2_redirect_uri' => 'http://localhost/wbcms/',
+    'oauth2_redirect_uri' => 'http://localhost/wbcms/site/',
 
     // The developer key, you get this at https://code.google.com/apis/console
     'developer_key' => '',

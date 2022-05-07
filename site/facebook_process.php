@@ -27,7 +27,7 @@ if(isset($accessToken)) {
 	
 	//Redirect user to the index page if url has "code" parameter in query string
 	if(isset($_GET['code'])){
-	  header('location:http://localhost/wbcms/index.php');
+	  header('location:http://localhost/wbcms/site/index.php');
 	}
 	
 	

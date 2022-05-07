@@ -11,7 +11,7 @@ use Facebook\Facebook;
 use Facebook\Exceptions\FacebookResponseException;
 use Facebook\Exceptions\FacebookSDKException;
 //Configuration of the Facebook SDK
-$redirectUrl   = 'http://localhost/wbcms/facebook_process.php'; 
+$redirectUrl   = 'http://localhost/wbcms/site/facebook_process.php'; 
 $fb = new Facebook([
   'app_id' => '1439534773186835',
   'app_secret' => '1cc33315f58c81dac52cb5d93f80aaa6',
