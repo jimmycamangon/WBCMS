@@ -1,5 +1,6 @@
 <?php
 
+// DB for Facebook
 class OauthUser {
     private $host          = "localhost";
     private $username      = "root";
@@ -54,7 +55,7 @@ class OauthUser {
 
   }
 
-
+// DB for Google 
 class User {
 	private $dbHost     = "localhost";
     private $dbUsername = "root";

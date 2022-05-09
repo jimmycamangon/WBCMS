@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="site/css/index3.css">
+    <link rel="stylesheet" href="site/css/landpage.css">
     <link rel="icon" type="image/png" sizes="32x32" href="site/assets/img/Logo.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -29,7 +29,7 @@
                 <li><a href="#instructions">Instructions</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="site/index.php">Sign In</a></li>
+                <li><a href="site/login.php">Sign In</a></li>
             </ul>
         </div>
         <div id="mySidenav" class="sidenav">
@@ -46,7 +46,7 @@
                 <hr>
                 <li><a href="#about">About</a></li>
                 <hr>
-                <li><a href="index.php">Sign In</a></li>
+                <li><a href="site/login.php">Sign In</a></li>
             </ul>
             </div>
           </div>

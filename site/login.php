@@ -17,7 +17,34 @@ include_once 'User.php';
 </head>
 
 
+<body>
+  <div class="login-container">
+    <div class="left-container">
+      <form action="login3.php" method="post">
+      <h2>LOGIN</h2>
+      <?php if (isset($_GET['error'])) { ?>
+        <p class="error"><?php echo $_GET['error']; ?></p>
+      <?php } ?>
+      <br>
+      <div class="inputbox-content">
+      <input type="text" name="uname" placeholder="User Name">
+      <span class="underline"></span>
+      </div>
+      <br>
+      <div class="inputbox-content">
+      <input type="password" name="password" placeholder="Password">
+      <span class="underline"></span>
+      </div>
+      <br>
+      <button type="submit" class="login"><span>Login</span></button>
+      <a href="../index.php"><button type="button" class="back"><span>Back</span></button></a>
+      <br>
+      <br>
+      <a href="registration.php" class="ca">Create an account</a>
+     </form>
 
+<div class="separator">or</div>
+    <div class="buttons">
 <?php
 if(isset($_GET['code'])){
   $gClient->authenticate($_GET['code']);
@@ -61,7 +88,7 @@ if ($gClient->getAccessToken()) {
 } else {
   $authUrl = $gClient->createAuthUrl();
   $output = '<a href="'.filter_var($authUrl, FILTER_SANITIZE_URL).'">
-  <button class="loginBtn google">
+  <button class="google">
   <i class="fa fa-google"></i> Login with Google
   </button>
   </a>';
@@ -126,10 +153,19 @@ if(isset($accessToken)) {
     $loginUrl = $helper->getLoginUrl($redirectUrl);
   echo '
   <a href="'.htmlspecialchars($loginUrl).'">
-  <button class="loginBtn facebook">
+  <button class="facebook">
   <i class="fa fa-facebook-square"></i> Login with Facebook
   </button>
   </a>';
   
   
-  }?></div>
+  }?>
+  </div>
+  </div>
+
+  <div class="right-container">
+    <img src="assets/img/login-right-img.jpg">
+  </div>
+  </div>
+</body>
+</html>

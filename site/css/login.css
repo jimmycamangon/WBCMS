@@ -2,18 +2,24 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: var(--font-family);
 }
 
 :root {
+    /*Fonts*/
+    --font-family: Trebuchet MS;
+    --font-size-h1: 3rem;
+    --font-size-p: 1.1rem;
+    --font-size-logo: 3rem;
+    /*Colors*/
+    --color-logo: #03C3F5;;
+    --color-navitems: #DCDCDC;;
     --primary-color: #03C3F5;
     --bg-color: #02051E;
-    --button-color: #fff;
-
-    --font-family: Trebuchet MS;
-    
+    --light-color: #FFF;
 }
 html {
-  overflow: hidden;
+  overflow-X: hidden;
 }
 body {
     background-color: var(--bg-color);
@@ -21,150 +27,236 @@ body {
     
 }
 
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: min(85vw, 1000px);
-    margin: 0px auto;
-    height: 100%;
-    width: 1000px;
-    background: var(--button-color);
-}
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.header img {
-    width: 100px;
-    padding-bottom: 2em;
-}
-.signin-body {
-    max-width: 500px;
-    width: 100%;
-    height: 100%;
-    padding: 2em 2em 2em 2em;
-    justify-content: column;
-    align-items: center;
-} 
-.input{
-  border: 0;
-	border-bottom: 1px solid #ccc;
-  outline: none;
-  padding: 1em;
+
+/*Inputs*/
+
+ .inputbox-content {
+  position: relative;
   width: 100%;
 }
-.input:focus{
-  border-bottom: 1px solid #000;
-	transition: 0.5s;
+ .inputbox-content input {
+  width: 100%;
+  height: 30px;
+  box-sizing: border-box;
+  line-height: 30px;
+  font-size: 14px;
+  border: 0;
+  background: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  border-radius: 0;
+  -webkit-appearance: none;
 }
-h5 {
-  width: 100%; 
-  text-align: center; 
-  border-bottom: 1px solid #ccc; 
-  line-height: 0.1em;
-  margin: 10px 0 20px; 
-} 
 
-h5 span { 
-   background:#fff; 
-   padding:0 10px; 
+
+.inputbox-content input:focus ~ .underline {
+  width: 100%;
 }
-.close-submit {
+ .inputbox-content label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  line-height: 30px;
+  color: #ccc;
+  cursor: text;
+  transition: all 200ms ease-out;
+  z-index: 10;
+}
+.inputbox-content .underline {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: all 200ms ease-out;
+}
+
+/*Separator*/
+
+.separator {
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
-}
-.submit {
-  background-color: #03C3F5;
-  border: none;
-  color: var(--button-color);
-  cursor: pointer;
-  width: 50%;
-  margin: 1em;
-  height: 40px;
-  border-radius: 0.2em;
-  font-family: var(--font-family);
-  font-size: 1rem;
-}
-.submit:hover {
-  background-color: #73c2fb;
-}
-.close {
-  background-color: #DD4B39;
-  color: var(--button-color);
-  border: none;
-  cursor: pointer;
-  width: 50%;
-  height: 40px;
-  border-radius: 0.2em;
-  margin: 1em;
-  padding-top: 0.6em;
-  font-family: var(--font-family);
   text-align: center;
+  color: #808080;
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.separator:not(:empty)::before {
+  margin-right: .25em;
+}
+
+.separator:not(:empty)::after {
+  margin-left: .25em;
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 940px; 
+  margin: 100px auto;
+}
+.left-container {
+  background-color: #fff;
+  padding: 4em;
+  width: 50%;
+}
+.right-container {
+  background-color: var(--bg-color);
+  width: 50%;
+  height: 100%;
+}
+.right-container img {
+  width: 100%;
+}
+.right-container img { 
+    animation-name: right-container;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+ 
+@keyframes right-container {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }   
+}
+
+/*Login Button*/
+.login {
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--light-color);
+  width: 40%;
+  max-width: 100%;
+  height: 40px;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+.login span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.login span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.login:hover {
+  border: 1px var(--primary-color) solid;
+}
+.login:hover span {
+  padding-right: 25px;
+}
+
+.login:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/*Back Button*/
+.back {
+  background-color: #E74B37;
+  border: none;
+  color: var(--light-color);
+  width: 40%;
+  max-width: 100%;
+  height: 40px;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+.back span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.back span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.back:hover {
+  border: 1px #E74B37 solid;
+}
+.back:hover span {
+  padding-right: 25px;
+}
+
+.back:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.ca {
   text-decoration: none;
+  color: #808080;
+  font-family: var(--font-family);
+  transition: .3s;
 }
-.close:hover {
-  background-color: #BB3F30;
+.ca:hover {
+  color: #000;
 }
-.right-img {
-    max-width: min(45vw, 1000px);
-    height: 600px;
-    width: 600px;
+
+
+/*Fb and Google Buttons*/
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  line-height: 10px;
+
 }
-.right-img img {
-   width: 100%;
-   height: 100%;
-}
-  .btn-close {
-    background-color: #DD4B39;
-    color: var(--primary-color);
-    width: 200px;
-  }
-  .btn-close:hover {
-    opacity: 0.9;
-  }
-  .btn-submit {
-    background-color: #03C3F5;
-    color: var(--primary-color);
-    width: 200px;
-  }
-  .btn-submit:hover {
-    opacity: 0.9;
-  }
-  /* Social Media Buttons (Google and Facebook) */
-  .modal-footer {
-    width: auto;
-  }
   /* Shared */
-  .loginBtn {
-    box-sizing: border-box;
-    position: relative;
-    /* width: 13em;  - apply for fixed size */
-    margin: 0.2em;
-    padding: 0em 1em;
-    border: none;
-    text-align: left;
-    line-height: 34px;
-    white-space: nowrap;
-    border-radius: 0.2em;
+  .facebook {
+    margin: 10px;
+    background-color: #364e92;
     font-size: 16px;
     color: #FFF;
+    border: none;
+    width: 200px;
+    max-width: 300px;
+    padding: 0.50em;
+    border-radius: 0.25em;
+    transition: .3s;
     cursor: pointer;
-  }
-  .facebook {
-    background-color: #364e92;
-    text-align: center;
-    width: 100%;
   }
   .facebook:hover {
     background-color: #4C69BA;
   }
   .google {
+    margin: 10px;
     background-color: #E74B37;
     text-align: center;
-    width: 100%;
+    font-size: 16px;
+    color: #FFF;
+    border: none;
+    padding: 0.50em;
+    width: 200px;
+    max-width: 300px;
+    border-radius: 0.25em;
+    transition: .3s;
+    cursor: pointer;
   }
   .google:hover {
     background-color: #BB3F30;
@@ -176,6 +268,13 @@ h5 span {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .login, .back {
+    width: 100%;
+    margin: 0.25em;
+  }
+  .right-container {
+    display: none;
   }
   .right-img {
     display: none;
