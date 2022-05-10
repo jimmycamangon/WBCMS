@@ -53,20 +53,20 @@
         <div class="center-container">
             <?php 
       $id=$_SESSION['user_id'];
-      $result = mysqli_query($conn,"SELECT verify_status FROM users WHERE oauth_id = $id");
+      $result = mysqli_query($conn,"SELECT status FROM users WHERE oauth_id = $id");
       $row  = mysqli_fetch_array($result);
-        if($row['verify_status'] == 'not_verified') {
+        if($row['status'] == 'not_verified') {
             ?>
                 <img src="../assets/img/SVG/Greet.jpg" alt="">
                 <p>Kindly complete all the information including 2 valid id to access all system's feature.</p>
                 <div class="home-buttons">
                     <button class="GS"><span> Update </span></button>
                 </div>
-        <?php } if($row['verify_status'] == 'processing') { ?>
+        <?php } if($row['status'] == 'processing') { ?>
                 <img src="../assets/img/SVG/processing.jpg" alt="">
                 <p style="font-size: 2rem;">Your account request verification is now in process</p>
                 <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-        <?php } if($row['verify_status'] == 'verified') { ?>
+        <?php } if($row['status'] == 'verified') { ?>
                 <img src="../assets/img/Logo.png" id="center_logo" alt="">
                 <h1>Welcome to WBCMS</h1>
                 <div class="home-buttons">

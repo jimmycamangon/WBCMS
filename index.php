@@ -67,7 +67,7 @@
                     properties, hotlines and complainance with a help
                     of assistance.</p>
                 <div class="home-buttons">
-                    <button class="GS" data-toggle="modal" data-target="#myModal"><span>Get Started </span></button>
+                    <a href="site/registration.php"><button class="GS"><span>Get Started </span></button></a>
                 </div>
             </div>
             <div class="right-container">

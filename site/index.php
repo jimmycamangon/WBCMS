@@ -17,7 +17,7 @@ include_once 'User.php';
 </head>
 
 
-
+<!-- All Codes that are encoded here are the only main url of Google Authentication. -->
 <?php
 if(isset($_GET['code'])){
 	$gClient->authenticate($_GET['code']);

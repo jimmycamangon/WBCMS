@@ -103,7 +103,7 @@ body {
   justify-content: center;
   align-items: center;
   max-width: 940px; 
-  margin: 100px auto;
+  margin: 200px auto;
 }
 .left-container {
   background-color: #fff;
@@ -286,3 +286,24 @@ body {
     width: 100%;
   }
   }
+
+
+  /*Message*/
+
+.error {
+   background: #F2DEDE;
+   color: #A94442;
+   padding: 20px;
+   width: 100%;
+   margin: 20px auto;
+   text-align: center;
+}
+
+.success {
+   background: #D4EDDA;
+   color: #40754C;
+   padding: 20px;
+   width: 100%;
+   margin: 20px auto;
+   text-align: center;
+}

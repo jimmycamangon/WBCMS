@@ -20,11 +20,12 @@ include_once 'User.php';
 <body>
   <div class="login-container">
     <div class="left-container">
-      <form action="login3.php" method="post">
+      <form action="functions/login_process.php" method="post">
       <h2>LOGIN</h2>
       <?php if (isset($_GET['error'])) { ?>
         <p class="error"><?php echo $_GET['error']; ?></p>
       <?php } ?>
+      <br>
       <br>
       <div class="inputbox-content">
       <input type="text" name="uname" placeholder="User Name">

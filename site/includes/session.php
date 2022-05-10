@@ -3,8 +3,8 @@
     include '../User.php';
 
 
-if($_SESSION['status']!="Active") {
-    header("location:../landpage.php");
+if($_SESSION['online']!="Active") {
+    header("location:../../index.php");
 }
 
 $sql = "SELECT * FROM users WHERE id = '".$_SESSION['user_id']."'";
