@@ -39,6 +39,7 @@
     --color-logo: #03C3F5;;
     --color-navitems: #DCDCDC;;
     --primary-color: #fff;
+    --main-color: #1da1f2;
 }
 html {
   scroll-behavior: smooth;
@@ -81,7 +82,7 @@ body{
   padding-left: 1em;
 }
 .nav-container h1 {
-  color: var(--color-logo);
+  color: var(--main-color);
   padding-top: 0.5em;
   font-size: var(--font-size-logo);
   transition: 120ms;
@@ -158,13 +159,14 @@ body{
   padding-left: 6.6em;
 }
 .GS {
-  background-color: #03C3F5;
+  background-color: transparent;
+  background-repeat: no-repeat;
   width: 200px;
+  color: var(--primary-color);
   height: 45px;
   border-radius: 10px;
-  border: none;
+  border: 1px solid var(--primary-color);
   cursor: pointer;
-  color: #fff;
   font-weight: 30px;
   transition: all 0.5s;
   font-size: 1.6rem;
@@ -184,7 +186,8 @@ body{
   transition: 0.5s;
 }
 .GS:hover {
-  border: 1px var(--primary-color) solid;
+  border: 1px solid var(--main-color);
+  background-color: var(--main-color);
 }
 .GS:hover span {
   padding-right: 25px;
@@ -729,7 +732,7 @@ section#features {
 }
 
 .mobile-nav h1 {
-  color: var(--color-logo);
+  color: var(--main-color);
   font-size: var(--font-size-logo);
   transition: 120ms;
   font-weight: bold;

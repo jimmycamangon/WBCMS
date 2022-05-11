@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/Logo.png">
-  <link rel="stylesheet" href="registration.css" />
+  <link rel="stylesheet" href="css/registration.css" />
   <script src="registration.js" defer></script>
   <title>Registration Form</title>
 </head>
@@ -121,10 +121,10 @@
         </select>
       </div>
       <div class="input-group">
-        <a href="../index.php" class="btn btn-next width-100 ml-auto">Cancel</a>
+        <a href="../index.php" class="btn btn-next width-100 ml-auto"><span>Cancel</span></a>
       </div>
       <div class="input-group">
-        <a href="#" class="btn btn-next width-100 ml-auto">Next</a>
+         <a href="#" class="btn btn-next width-100 ml-auto"><span>Next</span></a>
       </div>
     </div>
     </div>      
@@ -161,8 +161,8 @@
            <?php }?>
       </div>
 
-      <a href="#" class="btn btn-prev">Previous</a>
-      <a href="#" class="btn btn-next">Next</a>
+         <a href="#" class="btn btn-prev"><span>Previous</span></a>
+         <a href="#" class="btn btn-next"><span>Next</span></a>
     </div>
   </div>
 
@@ -196,8 +196,8 @@
            <?php }?>
       </div>
       <div class="btns-group">
-        <a href="#" class="btn btn-prev">Previous</a>
-        <a href="#" class="btn btn-next">Next</a>
+         <a href="#" class="btn btn-prev"><span>Previous </span></a>
+         <a href="#" class="btn btn-next"><span>Next </span></a>
       </div>
     </div>
   </div>
@@ -216,8 +216,8 @@
       </div>
      <br>
     <div class="btns-group">
-      <a href="#" class="btn btn-prev">Previous</a>
-      <input type="submit"   class="btn" name="submit"/>
+         <a href="#" class="btn btn-prev"><span>Previous</span></a>
+    <button type="submit" class="btn" name="submit"><span>Submit</span></button>
     </div>
   </div>
 </form>

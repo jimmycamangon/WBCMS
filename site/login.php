@@ -18,7 +18,7 @@ include_once 'User.php';
 
 
 <body>
-  <div class="login-container">
+  <div class="login-container"  align="center">
     <div class="left-container">
       <form action="functions/login_process.php" method="post">
       <h2>LOGIN</h2>

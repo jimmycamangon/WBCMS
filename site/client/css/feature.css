@@ -1,0 +1,120 @@
+  /*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(0, 0%, 99%);
+  --dark-color:  hsl(0, 100%, 1%);
+  --title-color: hsl(0, 0%, 99%);
+  --text-color: hsl(228, 8%, 50%);
+  --body-color: hsl(228, 100%, 99%);
+  --main-color: #1da1f2;
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Poppins', sans-serif;
+}
+
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+html {
+  height: auto;
+  overflow-x: hidden;
+}
+body {
+  position: relative;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  height: auto;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+h1, h2{
+  color: var(--title-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+/*Scroll Bar*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--main-color); 
+}
+
+/*=============== NAV ===============*/
+.container {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.section {
+  padding: 2rem 0;
+}
+
+.feature__container {
+  margin: auto 100px;
+  width: 90%;
+  height: auto;
+  gap: 1em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+}
+.feature__box {
+  width: 100%;
+  height: 400px;
+  box-shadow: 1px 0 4px hsla(228, 81%, 49%, .30);
+  border-radius: 1em;
+}
+.feature__head {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.feature__head img{
+  height: 150px;
+}
+.feature__head img { 
+    animation-name: feature__head;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+ 
+@keyframes feature__head {
+    0% { transform: translate(0,  0px);z-index: 1; }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }   
+}
+
+.feature__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  flex-direction: column;
+  padding: 1em;
+  text-align: center;
+}
+.feature__content h1 {
+  font-size: 1.50rem !important;
+  color: var(--main-color);
+}

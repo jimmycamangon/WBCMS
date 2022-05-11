@@ -1,0 +1,172 @@
+  /*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(0, 0%, 99%);
+  --dark-color:  hsl(0, 100%, 1%);
+  --title-color: hsl(0, 0%, 99%);
+  --text-color: hsl(228, 8%, 50%);
+  --body-color: hsl(228, 100%, 99%);
+  --main-color: #1da1f2;
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Poppins', sans-serif;
+}
+
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+html {
+  height: auto;
+  overflow-x: hidden;
+}
+body {
+  position: relative;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  height: auto;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+h1, h2{
+  color: var(--title-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+/*Scroll Bar*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--main-color); 
+}
+
+/*=============== Container ===============*/
+.clearance__payment__container {
+  margin: auto 100px;
+  width: 90%;
+  height: auto;
+  gap: 1em;
+  display: flex;
+}
+/*Left Container*/
+.clearance__payment__box__left {
+  width: 40%;
+  height: 400px;
+  box-shadow: 1px 0 4px hsla(228, 81%, 49%, .30);
+  border-radius: 1em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+.clearance__payment__head__left {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clearance__payment__head__left img{
+  height: 150px;
+}
+
+.clearance__payment__content__left p{
+  font-weight: bold !important;
+  font-size: 1rem;
+}
+
+/*Right Container*/
+.clearance__payment__box__right {
+  width: 60%;
+  height: 700px;
+  box-shadow: 1px 0 4px hsla(228, 81%, 49%, .30);
+  border-radius: 1em;
+}
+.clearance__payment__head__right {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clearance__payment__head__right img{
+  padding-top: 1em;
+  height: 150px;
+}
+
+.clearance__payment__content__right {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 50%;
+  flex-direction: column;
+  padding: 1em;
+  text-align: center;
+}
+
+/*Inputs*/
+
+ .inputbox-content {
+  padding-top: 1em;
+  position: relative;
+  width: 100%;
+  color: var(--dark-color) !important;
+  font-size: 1.40rem !important;
+}
+ .inputbox-content input {
+  font-size: 1.40rem !important;
+  width: 600px;
+  height: 30px;
+  box-sizing: border-box;
+  line-height: 30px;
+  font-size: 14px;
+  border: 0;
+  background: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+
+.inputbox-content input:focus ~ .underline {
+  width: 100%;
+}
+ .inputbox-content label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  line-height: 30px;
+  color: #ccc;
+  cursor: text;
+  transition: all 200ms ease-out;
+  z-index: 10;
+}
+.inputbox-content .underline {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--main-color);
+  transition: all 200ms ease-out;
+}

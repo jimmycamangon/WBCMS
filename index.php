@@ -67,7 +67,7 @@
                     properties, hotlines and complainance with a help
                     of assistance.</p>
                 <div class="home-buttons">
-                    <a href="site/registration.php"><button class="GS"><span>Get Started </span></button></a>
+                    <a href="site/registration.php"><button class="GS"><span>Sign Up</span></button></a>
                 </div>
             </div>
             <div class="right-container">
