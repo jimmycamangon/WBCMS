@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,7 +8,7 @@
 
 :root {
     /*Fonts*/
-    --font-family: Trebuchet MS;
+    --font-family: 'Poppins', sans-serif;
     --font-size-h1: 3rem;
     --font-size-p: 1.1rem;
     --font-size-logo: 3rem;
@@ -217,6 +218,7 @@ body {
 }
 
 
+
 /*Fb and Google Buttons*/
 .buttons {
   display: flex;
@@ -263,11 +265,8 @@ body {
   }
   
   @media screen and (max-width: 810px), screen and (max-height: 500px) {
-  .container {
-    margin: 100px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .left-container {
+    width: 90%;
   }
   .login, .back {
     width: 100%;

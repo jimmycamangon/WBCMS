@@ -69,52 +69,51 @@ if (empty($fname)) {
 		header("Location: ../registration.php?error= Contact Number is required&$user_data");
 	    exit();
 
-	}else if (empty($uname)) {
+		}else if (empty($uname)) {
 
-
-		header("Location: ../registration.php?error=User Name is required&$user_data");
-	    exit();
-	}else if(empty($pass)){
-        header("Location: ../registration.php?error=Password is required&$user_data");
-	    exit();
-	}
-	else if(empty($re_pass)){
-        header("Location: ../registration.php?error=Re Password is required&$user_data");
-	    exit();
-	}
-
-
-	else if($pass !== $re_pass){
-        header("Location: ../registration.php?error=The confirmation password  does not match&$user_data");
-	    exit();
-	}
-
-	else{
-
-		// hashing the password
-        $pass = md5($pass);
-
-	    $sql = "SELECT * FROM users WHERE user_name= '$uname'";
-		$result = $conn->query($sql);
-
-		if ($result-> num_rows > 0) {
-			header("Location: ../registration.php?error=The Username is taken try another&$user_data");
-	        exit();
-		}else {
-           $sql2 = "INSERT INTO users(oauth_provider, oauth_id,  first_name, middle_name, last_name, suffix, age, birthday, gender, relationship_status, full_address, email, contact, user_name, password, status) VALUES ('$oauth_provider', '$oauth_id', '$fname', '$mname','$lname', '$suffix', '$age', '$birthday', '$gender', '$relationship_status', '$address', '$email', '$contact','$uname', '$pass', '$status')";
-           $result2 = mysqli_query($conn, $sql2);
-           if ($result2) {
-           	 header("Location: ../registration.php?success=Your account has been created successfully");
-	         exit();
-           }else {
-	           	header("Location: ../registration.php?error=unknown error occurred&$user_data");
-		        exit();
-           }
+			header("Location: ../registration.php?error=User Name is required&$user_data");
+		    exit();
+		}else if(empty($pass)){
+	        header("Location: ../registration.php?error=Password is required&$user_data");
+		    exit();
 		}
+		else if(empty($re_pass)){
+	        header("Location: ../registration.php?error=Re Password is required&$user_data");
+		    exit();
+		}
+
+
+		else if($pass !== $re_pass){
+	        header("Location: ../registration.php?error=The confirmation password  does not match&$user_data");
+		    exit();
+		}
+
+		else{
+
+			// hashing the password
+	        $pass = md5($pass);
+
+		    $sql = "SELECT * FROM users WHERE user_name= '$uname'";
+			$result = $conn->query($sql);
+
+			if ($result-> num_rows > 0) {
+				header("Location: ../registration.php?error=The Username is taken try another&$user_data");
+		        exit();
+			}else {
+	           $sql2 = "INSERT INTO users(oauth_provider, oauth_id,  first_name, middle_name, last_name, suffix, age, birthday, gender, relationship_status, full_address, email, contact, user_name, password, status) VALUES ('$oauth_provider', '$oauth_id', '$fname', '$mname','$lname', '$suffix', '$age', '$birthday', '$gender', '$relationship_status', '$address', '$email', '$contact','$uname', '$pass', '$status')";
+	           $result2 = mysqli_query($conn, $sql2);
+	           if ($result2) {
+	           	 header("Location: ../registration.php?success=Your account has been created successfully");
+		         exit();
+	           }else {
+		           	header("Location: ../registration.php?error=Unknown error occurred&$user_data");
+			        exit();
+	           }
+			}
+		}
+		
+	}else{
+		header("Location: ../registration.php");
+		exit();
 	}
-	
-}else{
-	header("Location: ../registration.php");
-	exit();
-}
-}
+	}

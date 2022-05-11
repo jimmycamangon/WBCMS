@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2022 at 08:00 PM
+-- Generation Time: May 11, 2022 at 03:50 AM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,35 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `wbcms_database`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `oauth_users`
---
-
-CREATE TABLE `oauth_users` (
-  `id` int(11) NOT NULL,
-  `oauth_provider` varchar(50) NOT NULL,
-  `oauth_id` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `picture` varchar(255) NOT NULL,
-  `status` text NOT NULL,
-  `created_at` varchar(50) NOT NULL,
-  `modified_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `oauth_users`
---
-
-INSERT INTO `oauth_users` (`id`, `oauth_provider`, `oauth_id`, `name`, `first_name`, `last_name`, `email`, `picture`, `status`, `created_at`, `modified_at`) VALUES
-(194, 'google', '117026105942842883136', '', 'Camangon,', '', '', '', 'not_verified', '', '2022-03-31 11:36:54'),
-(195, 'google', '109041773047886311393', '', 'jimmy', '', '', '', 'not_verified', '', '2022-03-31 11:54:52'),
-(196, 'facebook', '7178740185532065', 'Jimmy B. Camangon', 'Jimmy', 'Camangon', '', 'https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=7178740185532065&height=50&width=50&ext=1651291991&hash=AeR8CPAqfECfLDHDltE', 'not_verified', '2022-03-31 06:13:12', '2022-03-31 12:13:12');
 
 -- --------------------------------------------------------
 
@@ -94,14 +65,16 @@ CREATE TABLE `users` (
   `suffix` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `age` int(255) NOT NULL,
   `birthday` int(255) NOT NULL,
+  `gender` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `relationship_status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `full_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `contact` int(255) NOT NULL,
+  `user_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `repeat_password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `gender` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `picture` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `verify_status` text COLLATE utf8_unicode_ci NOT NULL,
+  `resident` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   `modified_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -110,20 +83,16 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `oauth_provider`, `oauth_id`, `name`, `first_name`, `middle_name`, `last_name`, `suffix`, `age`, `birthday`, `full_address`, `email`, `contact`, `password`, `repeat_password`, `gender`, `picture`, `verify_status`, `created_at`, `modified_at`) VALUES
-(111, 'facebook', '7178740185532065', 'Jimmy B. Camangon', 'Jimmy', '', 'Camangon', '', 0, 0, '', '', 0, '', '', '', 'https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=7178740185532065&height=50&width=50&ext=1652118838&hash=AeTvWqoHpB5s2jelgI8', 'processing', '2022-04-09 18:39:25', '0000-00-00 00:00:00'),
-(112, 'google', '109041773047886311393', 'jimmycamangon', 'jimmy', '', 'camangon', '', 0, 0, '', 'jimmycamangon30@gmail.com', 0, '', '', '', 'https://lh3.googleusercontent.com/a/AATXAJw7jNeJDguE9N8dVftZxDzqIJIa_iZSaWsYRdXD=s96-c', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(114, 'google', '117026105942842883136', 'Camangon,Jimmy Jr B.', 'Camangon,', '', 'Jimmy Jr B.', '', 0, 0, '', 'jimmycamangon7@gmail.com', 0, '', '', '', 'https://lh3.googleusercontent.com/a-/AOh14Gj9htl2mMKMTxIiHvBgiPaubdDfRD2slQsT1D0qOA=s96-c', 'verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `users` (`id`, `oauth_provider`, `oauth_id`, `name`, `first_name`, `middle_name`, `last_name`, `suffix`, `age`, `birthday`, `gender`, `relationship_status`, `full_address`, `email`, `contact`, `user_name`, `password`, `picture`, `resident`, `status`, `created_at`, `modified_at`) VALUES
+(162, 'Form Registration', '1084427132', 'jimmy camangon basaran', 'jimmy', 'basaran', 'camangon', 'Jr', 21, 2022, 'Male', 'Single', 'SOUTHVILLE-4 PH1 BLK 10 LOT 09 BRGY.CAINGIN SANTA ROSA LAGUNA', 'jimmy_camangon@yahoo.com', 2147483647, 'Kaido', '21232f297a57a5a743894a0e4a801fc3', '', 'Employed', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(163, 'Form Registration', '198054852', '', 'jimmy', 'basaran', 'camangon', 'Jr', 21, 2022, 'Male', 'Single', 'SOUTHVILLE-4 PH1 BLK 10 LOT 09 BRGY.CAINGIN SANTA ROSA LAGUNA', 'jimmy_camangon@yahoo.com', 2147483647, 'jims', '827ccb0eea8a706c4c34a16891f84e7b', '', '', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(164, 'Form Registration', '1215967819', '', 'jimmy', 'basaran', 'camangon', 'None', 21, 2022, 'Male', 'Single', 'SOUTHVILLE-4 PH1 BLK 10 LOT 09 BRGY.CAINGIN SANTA ROSA LAGUNA', 'jimmy_camangon@yahoo.com', 2147483647, 'peyt', '827ccb0eea8a706c4c34a16891f84e7b', '', '', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(165, 'google', '104019995535113861480', 'CabangananEdward', 'Cabanganan', '', 'Edward', '', 0, 0, '', '', '', 'edwardcabanganan@gmail.com', 0, '', '', 'https://lh3.googleusercontent.com/a-/AOh14GhuweREol-tbAhSDfptf6C_RVCwiGr4jTQBI52G2Q=s96-c', '', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(166, 'Form Registration', '927183224', '', 'Kaido', 'Bermas', 'Cross', 'None', 11, 2022, 'Male', 'Single', 'Shfajgiwbkgog', 'edwardcabanganan@yahoo.com', 2147483647, 'Kaido000', '21232f297a57a5a743894a0e4a801fc3', '', '', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `oauth_users`
---
-ALTER TABLE `oauth_users`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `updates`
@@ -142,12 +111,6 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `oauth_users`
---
-ALTER TABLE `oauth_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
-
---
 -- AUTO_INCREMENT for table `updates`
 --
 ALTER TABLE `updates`
@@ -157,7 +120,7 @@ ALTER TABLE `updates`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

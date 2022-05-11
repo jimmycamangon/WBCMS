@@ -37,11 +37,13 @@ include_once 'User.php';
       <span class="underline"></span>
       </div>
       <br>
-      <button type="submit" class="login"><span>Login</span></button>
+      <center><button type="submit" class="login"><span>Login</span></button>
       <a href="../index.php"><button type="button" class="back"><span>Back</span></button></a>
+      </center>
       <br>
       <br>
-      <a href="registration.php" class="ca">Create an account</a>
+      <center><a href="registration.php" class="ca">Create an account</a></center>
+      <br>
      </form>
 
 <div class="separator">or</div>

@@ -17,7 +17,7 @@
   --title-color: hsl(0, 0%, 99%);
   --text-color: hsl(228, 8%, 50%);
   --body-color: hsl(228, 100%, 99%);
-  --container-color: #22272e;
+  --container-color: #1da1f2;
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -53,7 +53,7 @@ body {
   overflow-x: hidden;
 }
 
-h1 {
+h1, h2{
   color: var(--title-color);
 }
 
@@ -92,7 +92,7 @@ a {
   .nav__list {
     position: fixed;
     bottom: 2rem;
-    background-color: var(--container-color);
+    background-color: var(--first-color);
     box-shadow: 0 8px 24px hsla(228, 81%, 24%, .15);
     width: 80%;
     padding: 30px 40px;
@@ -120,12 +120,12 @@ a {
 }
 
 .nav__link:hover {
-  color: var(--first-color);
+  color: var(--dark-color);
 }
 
 /* Active link */
 .active-link {
-  color: var(--first-color);
+  color: var(--dark-color);
 }
 
 /*=============== BREAKPOINTS ===============*/
@@ -151,7 +151,7 @@ a {
   .nav {
     position: fixed;
     left: 0;
-    background-color: var(--container-color);
+    background-color: var(--first-color);
     box-shadow: 1px 0 4px hsla(228, 81%, 49%, .15);
     width: 84px;
     height: 100%;
@@ -161,7 +161,7 @@ a {
   .top__nav {
     width: 90%;
     height: 20px;
-    margin: 20px 100px;
+    margin: 10px 100px;
     padding: 1em;
   }
   .top__content {
@@ -170,7 +170,7 @@ a {
     justify-content: end;
     flex-direction: row;
     align-items: center;
-    gap: 3em;
+    gap: 2em;
   }
   .top__notif i:hover {
     color: var(--dark-color);
@@ -195,9 +195,30 @@ a {
     color: var(--dark-color);
   }
   .top__profile img {
+    border-radius: 2em;
     width: 40px;
     height: 40px;
   }
+
+  /*Home*/
+    .top__nav2 {
+    width: 90%;
+    height: 20px;
+    margin: 40px 100px;
+  }
+  .top__content2 {
+    float: left;
+    display: flex;
+    justify-content: end;
+    flex-direction: row;
+    align-items: center;
+    gap: 3em;
+  }
+  .top__content2 h2 {
+        color: var(--dark-color);
+  }
+
+
   .nav__logo {
     display: flex;
   }
@@ -239,7 +260,7 @@ a {
   .nav__toggle:hover{
     background-color: var(--first-color);
     color: var(--dark-color);
-    border: 1px solid var(--container-color);
+    border: 1px solid var(--dark-color);
   }
 }
 
@@ -255,7 +276,7 @@ a {
 
 
 .home__container {
-  margin: 70px 100px;
+  margin: auto 100px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(4, 1fr);
@@ -269,7 +290,7 @@ a {
   height: 200px;
   align-self: stretch;
   background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+  box-shadow: 1px 0 4px hsla(228, 81%, 49%, .30);
   border-radius: 1em;
 }
 
@@ -339,10 +360,9 @@ a {
   justify-content: center;
   gap: 2em; 
   flex-direction: column;
+  padding: 1em;
 }
 .right__box1__head {
-  display: flex;
-  justify-content: space-evenly;
   color: var(--dark-color);
   font-size: 2rem;
   font-weight: bold;
@@ -452,6 +472,7 @@ a {
 /*Verification Container*/
 .home__box2__container {
   display: flex;
+  width: 100%;
   height: 100%;
   justify-content: center;
   align-items: center;
@@ -465,6 +486,7 @@ a {
   flex-direction: column;
 }
 .right__box2 p {
+  font-size: 0.90rem;
   color: var(--first-color);
 }
 .home__box2__container img {
@@ -512,6 +534,100 @@ a {
 .GS:hover span:after {
   opacity: 1;
   right: 0;
+}
+/*Dropdown*/
+.apto-dropdown-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85px;
+  height: 45px;
+  float: left;
+  position: relative;
+}
+
+.apto-trigger-dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 10em;
+  background-color: var(--container-color);
+  border: 0;
+  transition: 0.2s ease-in;
+  cursor:pointer;
+}
+
+.apto-trigger-dropdown i{
+  font-size: 1rem;
+  color: var(--first-color);
+  text-align: center;
+}
+.apto-trigger-dropdown:hover {
+  background-color: #11679c;
+  color: var(--second-color);
+}
+
+.apto-trigger-dropdown .fa-caret-down {
+
+  float: right;
+  line-height: 32px;
+}
+
+
+.dropdown-menu {
+  width: 200px;
+  display:none;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 45px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  border-radius: 2em;
+}
+
+.dropdown-menu.show {
+  left: -80px;
+  display:block;
+}
+
+.dropdown-item i {
+  font-size: 1rem;
+  justify-content: start !important;
+}
+.dropdown-item a {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.50rem;
+}
+.dropdown-item {
+  gap: 1em;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  line-height: 25px;
+  border: 0;
+  padding: 0 20px;
+  cursor: pointer;
+  background-color:#fff;
+  font-weight: 700;
+  font-family: var(--body-font);
+  color: #5a616c;
+  text-align: left;
+  transition: .3s;
+}
+
+.dropdown-item:hover {
+  background-color:#e5e5e5;
+}
+
+.dropdown-item:not(:last-child){
+  border-bottom: 1px solid #e5e5e5;
 }
 
 /* For 2K & 4K resolutions */
@@ -586,7 +702,33 @@ a {
             <div class="top__profile">
               <img src="<?php if(!isset($_SESSION['picture'])) { echo '../assets/img/alt-image.png'; } else { echo $_SESSION["picture"]; } ?>" alt="Image">
               <h1><?php echo $_SESSION['user_fname']; ?> <?php echo $_SESSION['user_lname'] ?></h1></div>
-              <a href="../logout.php">Logout</a>
+             
+
+             <!-- Drop Down -->
+<div class="apto-dropdown-wrapper">
+   <button class="apto-trigger-dropdown">
+      <i class='bx bx-caret-down'></i>
+   </button>
+   <div class="dropdown-menu" data-selected="logout">
+      
+      <a href="../logout.php"><button type="button" value="logout" tabindex="0" class="dropdown-item"><i class='bx bxs-lock-alt' ></i>
+         Change Password
+      </button></a>
+
+      <a href="../logout.php"><button type="button" value="logout" tabindex="0" class="dropdown-item"><i class='bx bxs-exit bx-rotate-180' ></i>
+         Logout
+      </button></a>
+   </div>
+</div>
+
+
+          </div>
+        </div>
+<!-- Home -->
+               <div class="top__nav2">
+          <div class="top__content2">
+            <h2>Home</h2>
+
           </div>
         </div>
         <!-- Container -->
@@ -608,13 +750,15 @@ a {
               <div class="right__box1">
                 <div class="right__box1__head">
                     <?php echo $_SESSION['user_fname']; ?> <?php echo $_SESSION['user_lname'] ?>
-                     <a href="verify.php"><button class="update"><span> Update </span></button></a>
                 </div>
                 <div class="right__box1__content">
-                    <?php if(!isset($_SESSION['full_address'])) { ?><i class='bx bx-current-location' ></i>&nbsp;&nbsp;&nbsp;None<?php } else {?> <i class='bx bx-current-location' ></i>&nbsp;&nbsp;&nbsp;<?php echo $_SESSION['full_address'];?><?php } ?><br><br>
-                    <i class='bx bxs-envelope' ></i></i>&nbsp;&nbsp;&nbsp;<?php echo $_SESSION['email'];?><br><br>
-                       <?php if(!isset($_SESSION['full_address'])) { ?><i class='bx bxs-phone' ></i>&nbsp;&nbsp;&nbsp;None<?php } else {?><i class='bx bxs-phone' ></i>>&nbsp;&nbsp;&nbsp;<?php echo $_SESSION['contact'];?><?php } ?>
+                    <?php if(!isset($_SESSION['full_address'])) { ?><i class='bx bxs-map'></i>&nbsp;&nbsp;&nbsp;None<?php } else {?> <i class='bx bxs-map'></i>&nbsp;&nbsp;&nbsp;<?php echo $_SESSION['full_address'];?><?php } ?><br><br>
+
+                    <?php if(!isset($_SESSION['email'])) { ?><i class='bx bxs-envelope' ></i>&nbsp;&nbsp;&nbsp;None<?php } else {?> <i class='bx bxs-envelope' ></i>&nbsp;&nbsp;&nbsp;<?php echo $_SESSION['email'];?><?php } ?><br><br>
+
+                    <?php if(!isset($_SESSION['full_address'])) { ?><i class='bx bxs-phone' ></i>&nbsp;&nbsp;&nbsp;None<?php } else {?><i class='bx bxs-phone' ></i>&nbsp;&nbsp;&nbsp;<?php echo $_SESSION['contact'];?><?php } ?>
                 </div>
+                <a href="verify.php"><button class="update"><span> Update </span></button></a>
               </div>
             </div>
           </div>
@@ -641,7 +785,7 @@ a {
                   <?php } if($row['status'] == 'verified') { ?>
                          <div class="left__box2"> <img src="../assets/img/Logo.png" id="center_logo" alt="Image"></div>
                         <div class="right__box2">
-                          <h1>Welcome to WBCMS.</h1>
+                          <h2>Welcome to WBCMS.</h2>
                         </div>
                   <?php } ?>
             </div>
@@ -654,6 +798,7 @@ a {
 
 </body>
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
   /*=============== LINK ACTIVE ===============*/
 const linkColor = document.querySelectorAll('.nav__link')
@@ -679,5 +824,38 @@ const showMenu = (toggleId, navbarId) =>{
         })
     }
 }
-showMenu('nav-toggle','nav')
+showMenu('nav-toggle','nav');
+
+
+
+$(document).ready(function() {
+  
+  $(document).click(function() {
+     $('.dropdown-menu.show').removeClass('show');
+  });
+  
+  $('body').on('click','.apto-trigger-dropdown', function(e){
+    
+    e.stopPropagation();
+    
+   $(this).closest('.apto-dropdown-wrapper').find('.dropdown-menu').toggleClass('show');
+  });
+  
+  
+  $('body').on('click','.dropdown-item', function(e){
+    
+    e.stopPropagation();
+    
+    let $selectedValue = $(this).val(); 
+    let $icon          = $(this).find('svg');
+    let $btn           = $(this).closest('.apto-dropdown-wrapper').find('.apto-trigger-dropdown');
+    
+   $(this).closest('.apto-dropdown-wrapper').find('.dropdown-menu').removeClass('show').attr('data-selected', $selectedValue);
+    
+    $btn.find('svg').remove();
+    $btn.prepend($icon[0].outerHTML);
+    
+  });
+  
+});
 </script>
