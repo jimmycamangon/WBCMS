@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2022 at 03:50 AM
+-- Generation Time: May 12, 2022 at 01:46 PM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,40 @@ SET time_zone = "+00:00";
 --
 -- Database: `wbcms_database`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `clearance`
+--
+
+CREATE TABLE `clearance` (
+  `id` int(255) NOT NULL,
+  `oauth_id` varchar(255) NOT NULL,
+  `sur_name` varchar(255) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `middle_name` varchar(255) NOT NULL,
+  `full_address` varchar(255) NOT NULL,
+  `precint_number` varchar(255) NOT NULL,
+  `purpose` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `created_at` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `id` int(255) NOT NULL,
+  `oauth_id` varchar(255) NOT NULL,
+  `tracking_number` varchar(255) NOT NULL,
+  `full_name` varchar(255) NOT NULL,
+  `payment_method` varchar(255) NOT NULL,
+  `reference_number` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -84,15 +118,47 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `oauth_provider`, `oauth_id`, `name`, `first_name`, `middle_name`, `last_name`, `suffix`, `age`, `birthday`, `gender`, `relationship_status`, `full_address`, `email`, `contact`, `user_name`, `password`, `picture`, `resident`, `status`, `created_at`, `modified_at`) VALUES
-(162, 'Form Registration', '1084427132', 'jimmy camangon basaran', 'jimmy', 'basaran', 'camangon', 'Jr', 21, 2022, 'Male', 'Single', 'SOUTHVILLE-4 PH1 BLK 10 LOT 09 BRGY.CAINGIN SANTA ROSA LAGUNA', 'jimmy_camangon@yahoo.com', 2147483647, 'Kaido', '21232f297a57a5a743894a0e4a801fc3', '', 'Employed', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(163, 'Form Registration', '198054852', '', 'jimmy', 'basaran', 'camangon', 'Jr', 21, 2022, 'Male', 'Single', 'SOUTHVILLE-4 PH1 BLK 10 LOT 09 BRGY.CAINGIN SANTA ROSA LAGUNA', 'jimmy_camangon@yahoo.com', 2147483647, 'jims', '827ccb0eea8a706c4c34a16891f84e7b', '', '', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(164, 'Form Registration', '1215967819', '', 'jimmy', 'basaran', 'camangon', 'None', 21, 2022, 'Male', 'Single', 'SOUTHVILLE-4 PH1 BLK 10 LOT 09 BRGY.CAINGIN SANTA ROSA LAGUNA', 'jimmy_camangon@yahoo.com', 2147483647, 'peyt', '827ccb0eea8a706c4c34a16891f84e7b', '', '', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (165, 'google', '104019995535113861480', 'CabangananEdward', 'Cabanganan', '', 'Edward', '', 0, 0, '', '', '', 'edwardcabanganan@gmail.com', 0, '', '', 'https://lh3.googleusercontent.com/a-/AOh14GhuweREol-tbAhSDfptf6C_RVCwiGr4jTQBI52G2Q=s96-c', '', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(166, 'Form Registration', '927183224', '', 'Kaido', 'Bermas', 'Cross', 'None', 11, 2022, 'Male', 'Single', 'Shfajgiwbkgog', 'edwardcabanganan@yahoo.com', 2147483647, 'Kaido000', '21232f297a57a5a743894a0e4a801fc3', '', '', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(176, 'Form Registration', '1489140982', 'jimmy basaran camangon', 'jimmy', 'basaran', 'camangon', 'Jr', 21, 2022, 'Male', 'Single', 'SOUTHVILLE-4 PH1 BLK 10 LOT 09 BRGY.CAINGIN SANTA ROSA LAGUNA', 'jimmy_camangon@yahoo.com', 2147483647, 'jims', '827ccb0eea8a706c4c34a16891f84e7b', '', '', 'processing', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(180, 'Form Registration', '1553861643', '', 'edward', 'bermas', 'cabanganan', 'None', 21, 2022, 'Male', 'Single', 'SOUTHVILLE-4 PH1 BLK 10 LOT 09 BRGY.CAINGIN SANTA ROSA LAGUNA', 'edwardcabanganan@yahoo.com', 2147483647, 'Kaido', '827ccb0eea8a706c4c34a16891f84e7b', '', 'Student', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(181, 'google', '117026105942842883136', 'Camangon,Jimmy Jr B.', 'Camangon,', '', 'Jimmy Jr B.', '', 0, 0, '', '', '', 'jimmycamangon7@gmail.com', 0, '', '', 'https://lh3.googleusercontent.com/a-/AOh14Gj9htl2mMKMTxIiHvBgiPaubdDfRD2slQsT1D0qOA=s96-c', '', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(182, 'google', '109041773047886311393', 'jimmycamangon', 'jimmy', '', 'camangon', '', 0, 0, '', '', '', 'jimmycamangon30@gmail.com', 0, '', '', 'https://lh3.googleusercontent.com/a/AATXAJw7jNeJDguE9N8dVftZxDzqIJIa_iZSaWsYRdXD=s96-c', '', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `verification`
+--
+
+CREATE TABLE `verification` (
+  `id` int(11) NOT NULL,
+  `oauth_id` varchar(255) NOT NULL,
+  `valid_id` varchar(255) NOT NULL,
+  `img_upload` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `verification`
+--
+
+INSERT INTO `verification` (`id`, `oauth_id`, `valid_id`, `img_upload`) VALUES
+(3, '1553861643', 'Student ID', 'ID PICTURE.jpg');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `clearance`
+--
+ALTER TABLE `clearance`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `updates`
@@ -107,8 +173,26 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `verification`
+--
+ALTER TABLE `verification`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `clearance`
+--
+ALTER TABLE `clearance`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `updates`
@@ -120,7 +204,13 @@ ALTER TABLE `updates`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
+
+--
+-- AUTO_INCREMENT for table `verification`
+--
+ALTER TABLE `verification`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

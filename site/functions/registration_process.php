@@ -28,8 +28,9 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 	$uname = validate($_POST['uname']);
 	$pass = validate($_POST['password']);
 	$re_pass = validate($_POST['re_password']);
+	$resident = validate($_POST['resident']);
 
-	$user_data = 'fname='. $fname. '&mname='. $mname . '&lname='. $lname . '&suffix='. $suffix . '&age='. $age . '&birthday='. $birthday . '&gender='. $gender . '&relationship_status='. $relationship_status . '&email='. $email . '&contact='. $contact . '&address='. $address . '&uname='. $uname;
+	$user_data = 'fname='. $fname. '&mname='. $mname . '&lname='. $lname . '&suffix='. $suffix . '&age='. $age . '&birthday='. $birthday . '&gender='. $gender . '&relationship_status='. $relationship_status . '&email='. $email . '&contact='. $contact . '&address='. $address . '&uname='. $uname . '&resident='. $resident;
 
 if (empty($fname)) {
 		header("Location: ../registration.php?error=First Name is required&$user_data");
@@ -76,6 +77,9 @@ if (empty($fname)) {
 		}else if(empty($pass)){
 	        header("Location: ../registration.php?error=Password is required&$user_data");
 		    exit();
+		}else if(empty($resident)){
+	        header("Location: ../registration.php?error=Resident Type is required&$user_data");
+		    exit();
 		}
 		else if(empty($re_pass)){
 	        header("Location: ../registration.php?error=Re Password is required&$user_data");
@@ -100,7 +104,7 @@ if (empty($fname)) {
 				header("Location: ../registration.php?error=The Username is taken try another&$user_data");
 		        exit();
 			}else {
-	           $sql2 = "INSERT INTO users(oauth_provider, oauth_id,  first_name, middle_name, last_name, suffix, age, birthday, gender, relationship_status, full_address, email, contact, user_name, password, status) VALUES ('$oauth_provider', '$oauth_id', '$fname', '$mname','$lname', '$suffix', '$age', '$birthday', '$gender', '$relationship_status', '$address', '$email', '$contact','$uname', '$pass', '$status')";
+	           $sql2 = "INSERT INTO users(oauth_provider, oauth_id,  first_name, middle_name, last_name, suffix, age, birthday, gender, relationship_status, full_address, email, contact, user_name, password, resident, status) VALUES ('$oauth_provider', '$oauth_id', '$fname', '$mname','$lname', '$suffix', '$age', '$birthday', '$gender', '$relationship_status', '$address', '$email', '$contact','$uname', '$pass','$resident','$status')";
 	           $result2 = mysqli_query($conn, $sql2);
 	           if ($result2) {
 	           	 header("Location: ../registration.php?success=Your account has been created successfully");

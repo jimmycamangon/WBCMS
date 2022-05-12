@@ -40,6 +40,8 @@ class OauthUser {
     }
     $this->db->query($qry);
     $_SESSION['online'] = "Active";
+    $_SESSION['1st_phase'] = "inActive";
+    $_SESSION['2nd_phase'] = "inActive";
     $_SESSION['status'];
     $_SESSION['user_id']      = $userInfo['id'];
     $_SESSION['user_name']    = $userInfo['name'];
@@ -81,6 +83,8 @@ class User {
             $prevQuery = "SELECT * FROM ".$this->userTbl." WHERE oauth_provider = '".$userData['oauth_provider']."' AND oauth_id = '".$userData['oauth_id']."'";
             $prevResult = $this->db->query($prevQuery);
             $_SESSION['online'] = "Active";
+            $_SESSION['1st_phase'] = "inActive";
+            $_SESSION['2nd_phase'] = "inActive";
             $_SESSION['status'];
             $_SESSION['user_id']  = $userData['oauth_id'];
             $_SESSION['user_fname'] = $userData['first_name'];
@@ -98,6 +102,8 @@ class User {
                 $query = "INSERT INTO ".$this->userTbl." SET oauth_provider = '".$userData['oauth_provider']."', oauth_id = '".$userData['oauth_id']."', name = '".$userData['first_name']."' '".$userData['last_name']."', first_name = '".$userData['first_name']."', last_name = '".$userData['last_name']."', email = '".$userData['email']."', gender = '".$userData['gender']."', picture = '".$userData['picture']."',`status`='not_verified' ";
                 $this->db->query($query);
                 $_SESSION['online'] = "Active";
+                $_SESSION['1st_phase'] = "inActive";
+                $_SESSION['2nd_phase'] = "inActive";
                 $_SESSION['status'];
                 $_SESSION['user_id']      = $userData['oauth_id'];
                 $_SESSION['user_fname'] = $userData['first_name'];

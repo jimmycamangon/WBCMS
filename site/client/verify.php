@@ -1,3 +1,8 @@
+<?php 
+  session_start();
+  include '../includes/conn.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,35 +12,49 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/Logo.png">
   <link rel="stylesheet" href="css/verify.css" />
   <script src="all.js" defer></script>
-  <title>Verify Now!!!</title>
+  <title>Verification</title>
 </head>
 
 <body>
 
 <?php
+$id = $_SESSION['user_id'];
+
 if(isset($_POST['img_submit'])){
-  
+  $valid_id = $_POST["valid_id"];
   $img_name=$_FILES['img_upload']['name'];
   $tmp_img_name=$_FILES['img_upload']['tmp_name'];
   $folder='uploads/';
   move_uploaded_file($tmp_img_name,$folder.$img_name);
+
+  $select_data = "SELECT * FROM verification WHERE oauth_id = '$id'";
+  $select_data_result = mysqli_query($conn, $select_data);
+
+  if($select_data_result -> num_rows > 0) {
+    header("Location: verify.php?error= User already Requested");
+  } else {
+   $sql = "INSERT INTO verification (oauth_id, valid_id, img_upload) VALUES ('$id','$valid_id', '$img_name')";
+   $query= mysqli_query($conn,$sql);
+   header("Location: verify.php?success= Verification Requested Successfully");
+ }
 }
 
-?>
 
+
+?>
 
 
   <form action='' method='POST' class="form" enctype='multipart/form-data'>
       <div class="head">
     <img src="../assets/img/Logo.png">
   </div>
-    <h1 class="text-center">Verify Now!!!</h1>
+    <h1 class="text-center">Verification</h1>
     <!-- Progress bar -->
     <div class="progressbar">
       <div class="progress" id="progress"></div>
 
-      <div class="progress-step progress-step-active" data-title="Full Name"></div>
-      <div class="progress-step" data-title="Contact Details"></div>
+      <div class="progress-step progress-step-active" data-title="ID Type"></div>
+      <div class="progress-step" data-title="Valid ID"></div>
 
     </div>
 
@@ -53,8 +72,8 @@ if(isset($_POST['img_submit'])){
    <div class="form-step form-step-active">
     <div class="form-step1-active">
       <div class="input-group">
-        <label for="validid">Select ID Type</label>
-        <select name="validid" id="validid">
+        <label for="valid_id">Select ID Type</label>
+        <select name="valid_id" id="valid_id">
           <option>Student ID</option>
           <option>Company ID</option>
           <option >SSS ID</option>
@@ -68,10 +87,10 @@ if(isset($_POST['img_submit'])){
         </select>
       </div>
       <div class="input-group">
-        <a href="index.php" class="btn btn-next width-100 ml-auto">Cancel</a>
+        <a href="index.php" class="btn btn-next width-100 ml-auto"><span>Cancel</span></a>
       </div>
       <div class="input-group">
-        <a href="#" class="btn btn-next width-100 ml-auto">Next</a>
+        <a href="#" class="btn btn-next width-100 ml-auto"><span>Next</span></a>
       </div>
     </div>
     </div>      
@@ -82,8 +101,8 @@ if(isset($_POST['img_submit'])){
         <label for="file">Upload Valid ID</label>
         <input type="file" name="img_upload" id="img_upload">
       </div>
-      <a href="#" class="btn btn-prev">Previous</a>
-      <input type="submit"   class="btn" name="img_submit"/>
+      <a href="#" class="btn btn-prev"><span>Previous</span></a>
+      <button type="submit" class="btn" name="img_submit"><span>Submit</span></button>
     </div>
   </div>
 </div>

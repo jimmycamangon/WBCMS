@@ -22,8 +22,18 @@
           <div class="top__content2">
             <h2>Home</h2>
 
+            <br>
+                    <?php if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message'])) { ?>
+                        <div class="success"><?php echo $_SESSION['success_message']; ?></div>
+                        <?php
+                        
+                    }
+                    ?>
           </div>
         </div>
+
+        <span class="msg-icn" id="msg-icn">    </span>
+
         <!-- Container -->
         <div class="home__container">
           <div class="home__box">
@@ -65,7 +75,7 @@
                       ?>
                         <div class="left__box2"> <img src="../assets/img/SVG/Greet2.png" alt="Image"></div>
                         <div class="right__box2">
-                          <p>Kindly complete all the information including 1 valid id to access all system's feature.</p>
+                          <p>Kindly complete all your information including 1 valid id to access all system's feature.</p>
                           <br>
                           <a href="verify.php"><button class="Verify"><span> Verify </span></button></a>
                         </div>

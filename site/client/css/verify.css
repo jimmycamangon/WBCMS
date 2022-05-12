@@ -1,11 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 :root {
   --primary-color: #03C3F5;
+
+  /*Font*/
+  --font-family: 'Poppins', sans-serif;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: var(--font-family);
 }
 
 body {
@@ -14,7 +19,6 @@ body {
   display: grid;
   place-items: center;
   min-height: 100vh;
-  background-color: #22272e;
 }
 /* Global Stylings */
 label {
@@ -114,7 +118,6 @@ select {
 .form {
   width: min(1000px, calc(70% + 100px));
   margin: 0 auto;
-  border: 2px solid #000;
   border-radius: 0.35rem;
   padding: 1.5rem;
   background-color: #EDE9E8 ;
@@ -201,8 +204,33 @@ select {
   cursor: pointer;
   transition: 0.3s;
 }
+.btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
 .btn:hover {
-  box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+  border: 1px solid var(--main-color);
+}
+.btn:hover span {
+  padding-right: 25px;
+}
+
+.btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+button {
+  border: none;
 }
 /*Message*/
 

@@ -34,6 +34,8 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 			$row = mysqli_fetch_assoc($result);
             if ($row['user_name'] === $uname && $row['password'] === $pass) {
             	$_SESSION['online'] = "Active";
+            	$_SESSION['1st_phase'] = "inActive";
+            	$_SESSION['2nd_phase'] = "inActive";
             	$_SESSION['user_fname'] = $row['first_name'];
             	$_SESSION['user_lname'] = $row['last_name'];
             	$_SESSION['user_mname'] = $row['middle_name'];

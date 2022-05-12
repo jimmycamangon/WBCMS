@@ -34,7 +34,6 @@
     <?php if (isset($_GET['success'])) { ?>
      <p class="success"><?php echo $_GET['success']; ?>
      <a class="close_success" style="cursor:pointer; position: absolute;right: 0.25rem; top: 0.125rem;">&times;</a></p>
-
    <?php } ?>
    <div class="form-step form-step-active">
     <div class="form-step1-active">
@@ -208,15 +207,15 @@
         <div class="form-step4-active">
         <label for="resident">Select Residents Type</label>
         <select name="resident" id="resident">
-           <option>Student</option>
-            <option>UnEmployed</option>
+          <option>Student</option>
+          <option>UnEmployed</option>
           <option >Employed</option>
           <option>Senior Citizen</option>
         </select>
       </div>
      <br>
     <div class="btns-group">
-         <a href="#" class="btn btn-prev"><span>Previous</span></a>
+    <a href="#" class="btn btn-prev"><span>Previous</span></a>
     <button type="submit" class="btn" name="submit"><span>Submit</span></button>
     </div>
   </div>

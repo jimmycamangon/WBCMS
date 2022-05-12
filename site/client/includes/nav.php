@@ -1,7 +1,7 @@
   <!-- Side Nav -->
         <div class="nav" id="nav">
             <nav class="nav__content">
-                <div class="nav__toggle" id="nav-toggle">
+                <div class="nav__toggle" id="nav-toggle" onclick="openNav()">
                     <i class='bx bx-chevron-right' ></i>
                 </div>
     

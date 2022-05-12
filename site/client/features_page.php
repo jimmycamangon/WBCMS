@@ -2,6 +2,7 @@
     session_start();
     include '../includes/conn.php';
     include '../includes/session.php';
+    
  ?>
 <!DOCTYPE html>
 <html>
@@ -9,7 +10,7 @@
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>Features</title>
   <link rel="stylesheet" type="text/css" href="css/home.css">
   <link rel="stylesheet" type="text/css" href="css/feature.css">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/Logo.png">
@@ -22,12 +23,21 @@
 <!-- Features Page -->
         <div class="top__nav2">
           <div class="top__content2">
-            <h2>Features</h2>
+            <h2>Features and Services</h2>
 
           </div>
         </div>
 
+        <?php 
 
+        // If user click the button = start the session
+
+        if(isset($_POST['start'])) {
+          $_SESSION['1st_phase'] = "Active";
+          header("Location: clearance_payment.php");
+        }
+
+        ?>
         <div class="feature__container">
           <div class="feature__box">
           	<div class="feature__head">
@@ -39,12 +49,26 @@
           		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           		tempor</p>
           		<br>
-          		<a href="clearance_payment.php"><button class="update"><span> Get Started </span></button></a>
+          		<form action="" method="POST">
+                <button type="submit" class="update" name="start"><span> Get Started </span></button>  
+              </form>
           	</div>
           </div>
 
       </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 	<?php include 'includes/footer.php';?>
 </body>
 </html>
