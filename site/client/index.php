@@ -2,6 +2,7 @@
     session_start();
     include '../includes/conn.php';
     include '../includes/session.php';
+    
  ?>
 <!DOCTYPE html>
 <html>
@@ -11,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
   <link rel="stylesheet" type="text/css" href="css/home.css">
+  <link rel="stylesheet" type="text/css" href="css/progress.css">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/Logo.png">
   <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -24,7 +26,7 @@
 
             <br>
                     <?php if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message'])) { ?>
-                        <div class="success"><?php echo $_SESSION['success_message']; ?></div>
+                        <p class="success"><?php echo $_SESSION['success_message']; ?></p>
                         <?php
                         unset($_SESSION['success_message']);
                     }
@@ -88,16 +90,61 @@
                   <?php } if($row['status'] == 'verified') { ?>
                          <div class="left__box2"> <img src="../assets/img/Logo.png" id="center_logo" alt="Image"></div>
                         <div class="right__box2">
-                          <h2>Welcome to WBCMS.</h2>
+                          <h2>Welcome to WBCMS</h2>
                         </div>
                   <?php } ?>
             </div>
           </div>
           <div class="home__box"></div>
-          <div class="home__box"></div>
+          <div class="home__box">
+             <section class="step__progress__container">
+               <h1>Clearance Request Status</h1>
+                    <ul class="step-wizard-list">
+                        <li class="step-wizard-item">
+                            <span class="progress-count">1</span>
+                            <span class="progress-label">To Pay</span>
+                        </li>
+                       <?php if($row['status'] == 'not_verified') { ?>
+                        <li class="step-wizard-item current-item">
+                            <span class="progress-count">2</span>
+                            <span class="progress-label">Pending</span>
+                        </li>
+                       <?php } else { ?>
+                        <li class="step-wizard-item">
+                            <span class="progress-count">2</span>
+                            <span class="progress-label">Pending</span>
+                        </li>
+                       <?php }?>
+                       <?php if($row['status'] == 'processing') { ?>
+                        <li class="step-wizard-item current-item">
+                            <span class="progress-count">3</span>
+                            <span class="progress-label">Processing</span>
+                        </li>
+                      <?php } else { ?>
+                        <li class="step-wizard-item">
+                            <span class="progress-count">3</span>
+                            <span class="progress-label">Processing</span>
+                        </li>
+                      <?php } ?>
+                      <?php if($row['status'] == 'To_Claim') { ?>
+                        <li class="step-wizard-item current-item">
+                            <span class="progress-count">4</span>
+                            <span class="progress-label">To Claim</span>
+                        </li>
+                      <?php } else { ?>
+                        <li class="step-wizard-item">
+                            <span class="progress-count">4</span>
+                            <span class="progress-label">To Claim</span>
+                        </li>
+                      <?php } ?>
+                    </ul>
+                <button class="update"><span>View</span></button>
+              </section>
+          </div>
+          <div class="home__box">
+          </div>
 
         </div>
-
         <?php include 'includes/footer.php'; ?>
 </body>
 </html>

@@ -20,7 +20,7 @@ if(isset($_POST['payment_submit'])) {
 
 	// Check
 	if($select_user_payment_result -> num_rows > 0) {
-    header("Location: ../clearance_payment.php?error= User already Requested Payment");
+    header("Location: ../clearance_payment.php?error= User already Requested");
 	  } else {
 	   $sql = "INSERT INTO payment (oauth_id, tracking_number, full_name, payment_method, reference_number) VALUES ('$id','$tracking_number', '$full_name', '$payment_method', '$reference_num')";
 	   $query= mysqli_query($conn,$sql);

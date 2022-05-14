@@ -65,7 +65,7 @@
                 <div class="inputbox-content">
                   <?php if (isset($_GET['error'])) { ?>
                     <div class="message">
-                      <p class="error"> <?php echo $_GET['error']; ?><a class="close" style="cursor:pointer; position: absolute;right: 0.25rem; top: 0.125rem;">&times;</a></p>
+                      <p class="error"> <?php echo $_GET['error']; ?></p>
                     </div>
                   <?php } ?>
                   <?php if (isset($_GET['success'])) { ?>

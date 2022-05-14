@@ -23,7 +23,8 @@ if(isset($_POST['cancel'])) {
   $delete_payment_request_result = mysqli_query($conn, $delete_payment_request);
     $_SESSION['1st_phase'] = "inActive";
     $_SESSION['2nd_phase'] = "inActive";
-    header("Location: features_page.php");
+    $_SESSION['success_message'] = "Request Cancelled Successfully";
+    header("Location: index.php");
 
 }
 
@@ -111,7 +112,7 @@ if(isset($_POST['cancel'])) {
           <button href="clearance_fill_up.php" onclick="location.href='clearance_fill_up.php'" class="btn" type="button" style="background: #E74B37;"><span>Cancel</span></button>
           <button type="submit" for="check" class="btn" name="cancel" id="cancel_queue" href="javascript:void(0)" value="Cancel"><span>Confirm</span>
           </form>
-      </div>
+  </div>
 
 
 

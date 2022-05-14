@@ -112,7 +112,7 @@
         <div class="update_page_card">
         <div class="card ">
         <header class="card__header">
-            <img src="site/assets/img/'.$row["img"].'" class="card__img" alt="NGIWI">
+            <img src="site/assets/img/'.$row["img"].'" class="card__img" alt="Image">
             </header>
             <div class="card__quote">
                 <h3>

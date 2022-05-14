@@ -7,8 +7,6 @@ include_once 'fconfig.php';
 unset($_SESSION['facebook_access_token']);
 unset($_SESSION['token']);
 unset($_SESSION['userData']);
-unset($_SESSION['1st_phase']);
-unset($_SESSION['2nd_phase']);
 
 
 //Reset OAuth access token

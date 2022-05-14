@@ -25,11 +25,14 @@ if(isset($_POST['clearance_submit'])) {
 
 	// Check
 	if($select_user_clearance_result -> num_rows > 0) {
-    header("Location: ../clearance_fill_up.php?error= User already Exist");
+    header("Location: ../clearance_fill_up.php?error= User already Requested");
 	  } else {
 	   $sql = "INSERT INTO clearance (oauth_id, sur_name, first_name, middle_name, full_address, precint_number, purpose, status, created_at) VALUES ('$id','$sur_name', '$first_name', '$middle_name', '$full_address', '$precint_number', '$payment_method', '$status', '$member_since')";
 	   $query= mysqli_query($conn,$sql);
-	   $_SESSION['success_message'] = "Contact form saved successfully.";
+	   $_SESSION['1st_phase'] = "inActive";
+       $_SESSION['2nd_phase'] = "inActive";
+       $_SESSION['Pending'] = TRUE;
+	   $_SESSION['success_message'] = "Clearance Form Requested Succesfully";
 	   header("Location: ../index.php");
 }
 }
