@@ -90,21 +90,29 @@
                   <?php } if($row['status'] == 'verified') { ?>
                          <div class="left__box2"> <img src="../assets/img/Logo.png" id="center_logo" alt="Image"></div>
                         <div class="right__box2">
-                          <h2>Welcome to WBCMS</h2>
+                          <h2>Welcome to WBCMS.</h2>
                         </div>
                   <?php } ?>
             </div>
           </div>
           <div class="home__box"></div>
           <div class="home__box">
-             <section class="step__progress__container">
-               <h1>Clearance Request Status</h1>
+            <?php 
+              $id = $_SESSION['user_id'];
+              $query = "SELECT clearance.status, clearance.oauth_id, requests.oauth_id, requests.type FROM clearance INNER JOIN requests ON clearance.oauth_id = requests.oauth_id WHERE requests.oauth_id = '$id' ORDER BY requests.id ASC LIMIT 3";
+              $result = mysqli_query($conn, $query);
+
+                 if ($result -> num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                          ?>
+                            <section class="step__progress__container">
+               <h1>Clearance Request</h1>
                     <ul class="step-wizard-list">
                         <li class="step-wizard-item">
                             <span class="progress-count">1</span>
                             <span class="progress-label">To Pay</span>
                         </li>
-                       <?php if($row['status'] == 'not_verified') { ?>
+                       <?php if($row['status'] == 'Pending') { ?>
                         <li class="step-wizard-item current-item">
                             <span class="progress-count">2</span>
                             <span class="progress-label">Pending</span>
@@ -115,7 +123,7 @@
                             <span class="progress-label">Pending</span>
                         </li>
                        <?php }?>
-                       <?php if($row['status'] == 'processing') { ?>
+                       <?php if($row['status'] == 'Processing') { ?>
                         <li class="step-wizard-item current-item">
                             <span class="progress-count">3</span>
                             <span class="progress-label">Processing</span>
@@ -138,13 +146,17 @@
                         </li>
                       <?php } ?>
                     </ul>
-                <button class="update"><span>View</span></button>
+                <button class="update"><span>View More</span></button>
               </section>
-          </div>
-          <div class="home__box">
+                        <?php }
+                        } else {
+                      echo "<div style='display:flex;justify-content:center;align-items:center;'><img style='width:300px;' src='../assets/img/SVG/No Data.png'></div>";
+                    }
+            ?>
           </div>
 
         </div>
+
         <?php include 'includes/footer.php'; ?>
 </body>
 </html>

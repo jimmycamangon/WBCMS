@@ -1,3 +1,6 @@
+<?php 
+include 'site/includes/conn.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,7 +90,6 @@
 	<h1>Check our Newest Post from Facebook</h1>
     </div>
         <?php 
-        include 'site/includes/conn.php';
 
         function make_query($conn)
         {

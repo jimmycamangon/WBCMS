@@ -4,7 +4,7 @@
 
 
 if($_SESSION['online']!="Active") {
-    header("location:../../index.php");
+    header("location:../login.php");
 }
 
 $sql = "SELECT * FROM users WHERE id = '".$_SESSION['user_id']."'";

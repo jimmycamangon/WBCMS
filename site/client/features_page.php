@@ -80,6 +80,9 @@ if(isset($_POST['cancel'])) {
 
               if($result -> num_rows == 1 AND $row['status'] == 'Pending') {?>
                 <div class="buttons"><label  class="btn" for="check" style="background: #E74B37;"><span>Cancel</span></label></div><p class="pending">Request Pending</p>
+
+              <?php } if($result -> num_rows == 1 AND $row['status'] == 'Processing') {?>
+               <p class="pending">Request in Process</p>
               <?php } if($result -> num_rows == 0) { ?>
           		<form action="" method="POST">
                 <button type="submit" class="update" name="start"><span> Get Started </span></button>  
