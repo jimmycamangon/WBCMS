@@ -13,6 +13,7 @@
   <title>Home</title>
   <link rel="stylesheet" type="text/css" href="css/home.css">
   <link rel="stylesheet" type="text/css" href="css/progress.css">
+  <link rel="stylesheet" type="text/css" href="css/news.css">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/Logo.png">
   <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -38,6 +39,8 @@
 
         <!-- Container -->
         <div class="home__container">
+
+          <!-- Box num 1 -->
           <div class="home__box">
             <div class="home__box1__container">
               <div class="left__box1">
@@ -67,6 +70,9 @@
               </div>
             </div>
           </div>
+
+
+          <!-- Box Num 2 -->
           <div class="home__box">
             <div class="home__box2__container">
                <?php 
@@ -95,18 +101,97 @@
                   <?php } ?>
             </div>
           </div>
-          <div class="home__box"></div>
+
+
+          <!-- Box Num 3 -->
           <div class="home__box">
+          <div class="home__box__head3">
+            <h1>News</h1>
+          </div>  
+          <div class="home__box3__container3">
             <?php 
               $id = $_SESSION['user_id'];
+              $select_news = "SELECT * FROM updates ORDER BY id ASC LIMIT 6";
+              $select_news_result = mysqli_query($conn, $select_news);
+
+                 if ($select_news_result -> num_rows > 0) {
+                        while ($news_row = $select_news_result->fetch_assoc()) {
+                          ?>
+                           <div class="card__update">
+                             <img src="<?php echo '../assets/img/'.$news_row['img'].''?>" class="card__image" alt="Image">
+                            <div class="card__overlay">        
+                              <div class="card__header">
+                                <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+                                <img class="card__thumb" src="../assets/img/SVG/admin-icon.png" alt="" />
+                                <div class="card__header-text">
+                                  <h3 class="card__title">Admin</h3>
+
+                                  <span class="card__status">
+
+
+                                <!-- Time Ago Function -->
+                                    <?php 
+                                 if(function_exists("TimeAgo")){
+                                  } else {                           //Creating Function
+                                  function TimeAgo ($oldTime, $newTime) {
+                                  $timeCalc = strtotime($newTime) - strtotime($oldTime);
+                                  if ($timeCalc >= (60*60*24*30*12*2)){
+                                    $timeCalc = intval($timeCalc/60/60/24/30/12) . " years ago";
+                                    }else if ($timeCalc >= (60*60*24*30*12)){
+                                      $timeCalc = intval($timeCalc/60/60/24/30/12) . " year ago";
+                                    }else if ($timeCalc >= (60*60*24*30*2)){
+                                      $timeCalc = intval($timeCalc/60/60/24/30) . " months ago";
+                                    }else if ($timeCalc >= (60*60*24*30)){
+                                      $timeCalc = intval($timeCalc/60/60/24/30) . " month ago";
+                                    }else if ($timeCalc >= (60*60*24*2)){
+                                      $timeCalc = intval($timeCalc/60/60/24) . " days ago";
+                                    }else if ($timeCalc >= (60*60*24)){
+                                      $timeCalc = " Yesterday";
+                                    }else if ($timeCalc >= (60*60*2)){
+                                      $timeCalc = intval($timeCalc/60/60) . " hours ago";
+                                    }else if ($timeCalc >= (60*60)){
+                                      $timeCalc = intval($timeCalc/60/60) . " hour ago";
+                                    }else if ($timeCalc >= 60*2){
+                                      $timeCalc = intval($timeCalc/60) . " minutes ago";
+                                    }else if ($timeCalc >= 60){
+                                      $timeCalc = intval($timeCalc/60) . " minute ago";
+                                    }else if ($timeCalc > 0){
+                                      $timeCalc .= " seconds ago";
+                                    }
+                                  return $timeCalc;
+                                  }
+                                }
+                                  $date = $news_row['created_at'];
+
+                                  echo TimeAgo($date, date("Y-m-d H:i:s"));
+                                ?>
+                                    
+
+                                  </span>
+                                </div>
+                              </div>
+                              <p class="card__description"><?php echo $news_row['title'];?></p>
+                              <a href="<?php echo $news_row['link'];?>" class="card__link">Read more</a>
+                            </div>
+                          </div>
+                        <?php }
+                         } else {
+                            echo "<div style='display:flex;justify-content:center;align-items:center;'><img style='width:300px;' src='../assets/img/SVG/No Data Update.png'></div>";
+                    }?>
+          </div>
+          </div>
+
+          <!-- Box Num 4 -->
+          <div class="home__box">
+            <?php 
               $query = "SELECT clearance.status, clearance.oauth_id, requests.oauth_id, requests.type FROM clearance INNER JOIN requests ON clearance.oauth_id = requests.oauth_id WHERE requests.oauth_id = '$id' ORDER BY requests.id ASC LIMIT 3";
               $result = mysqli_query($conn, $query);
 
                  if ($result -> num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                           ?>
-                            <section class="step__progress__container">
-               <h1>Clearance Request</h1>
+              <section class="step__progress__container">
+               <h1><?php echo $row['type'];?> Request Status</h1>
                     <ul class="step-wizard-list">
                         <li class="step-wizard-item">
                             <span class="progress-count">1</span>

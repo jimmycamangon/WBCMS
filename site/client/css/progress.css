@@ -92,11 +92,13 @@
     top: 50%;
     transform: translate(-50%, -60%) rotate(-45deg);
     transform-origin: center center;
+        z-index: -1;
 }
 .progress-label{
     font-size: 0.9rem;
     font-weight: 600;
     margin-top: 10px;
+    z-index: 10;
 }
 .current-item .progress-count:before,
 .current-item ~ .step-wizard-item .progress-count:before{

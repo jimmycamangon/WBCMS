@@ -10,7 +10,9 @@ $id = $_SESSION['user_id'];
 
 if(isset($_POST['cancel'])) {
 
-
+// Deleate data from requests
+  $delete_request = "DELETE FROM requests WHERE oauth_id = '$id'";
+  $delete_request_result = mysqli_query($conn, $delete_request);
 // Delete data from clearance
   $delete_clearance_request = "DELETE FROM clearance WHERE oauth_id = '$id'";
   $delete_clearance_request_result = mysqli_query($conn, $delete_clearance_request);
