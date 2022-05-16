@@ -41,11 +41,20 @@
 
         <div class="top__nav">
           <div class="top__content">
-            <div class="top__notif"><i class='bx bxs-bell'></i></div>
             <div class="top__profile">
               <img src="<?php if(!isset($_SESSION['picture'])) { echo '../assets/img/alt-image.png'; } else { echo $_SESSION["picture"]; } ?>" alt="Image">
               <h1><?php echo $_SESSION['user_fname']; ?> <?php echo $_SESSION['user_lname'] ?></h1></div>
-             
+
+
+             <!-- Drop Down -->
+            <div class="apto-dropdown-wrapper">
+               <button class="apto-trigger-dropdown" id="notificationLink" onclick = "removeNotification()">
+               <span id="notification_count"></span> <i class='bx bxs-bell'></i>
+               </button>
+               <div class="dropdown-menu-notif" data-selected="logout">
+               <span id="noti_message"></span>
+               </div>
+            </div>
 
                          <!-- Drop Down -->
             <div class="apto-dropdown-wrapper">
@@ -67,3 +76,5 @@
 
           </div>
         </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

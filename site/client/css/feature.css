@@ -283,3 +283,20 @@ a {
 button {
   border: none;
 }
+
+
+/*Notification Count Design*/
+
+#notification_count
+{
+padding: 0px 5px 0px 5px;
+background: #cc0000;
+color: #ffffff;
+font-weight: bold;
+margin-left: 20px;
+margin-top: -1.5em;
+border-radius: 9px;
+position: absolute;
+font-size: 1rem;
+z-index: 1;
+}

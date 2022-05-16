@@ -45,6 +45,7 @@
 
 .card__update:hover .card__overlay {
   transform: translateY(0);
+  z-index: 1;
 }
 
 .card__header {
@@ -57,6 +58,7 @@
   background-color: var(--surface-color);
   transform: translateY(-100%);
   transition: .2s ease-in-out;
+  z-index: 1;
 }
 
 .card__arc {

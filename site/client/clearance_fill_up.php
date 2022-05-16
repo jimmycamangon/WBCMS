@@ -43,35 +43,6 @@ if(isset($_POST['cancel'])) {
   <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-  <!-- Top -->
-  <div class="top__nav">
-          <div class="top__content">
-            <div class="top__notif"><i class='bx bxs-bell'></i></div>
-            <div class="top__profile">
-              <img src="<?php if(!isset($_SESSION['picture'])) { echo '../assets/img/alt-image.png'; } else { echo $_SESSION["picture"]; } ?>" alt="Image">
-              <h1><?php echo $_SESSION['user_fname']; ?> <?php echo $_SESSION['user_lname'] ?></h1></div>
-             
-
-                         <!-- Drop Down -->
-            <div class="apto-dropdown-wrapper">
-               <button class="apto-trigger-dropdown">
-                  <i class='bx bx-caret-down'></i>
-               </button>
-               <div class="dropdown-menu" data-selected="logout">
-                  
-                  <a href="../logout.php"><button type="button" value="logout" tabindex="0" class="dropdown-item"><i class='bx bxs-lock-alt' ></i>
-                     Change Password
-                  </button></a>
-
-                  <a href="../logout.php"><button type="button" value="logout" tabindex="0" class="dropdown-item"><i class='bx bxs-exit bx-rotate-180' ></i>
-                     Logout
-                  </button></a>
-               </div>
-            </div>
-
-
-          </div>
-        </div>
 
 
 <!-- Fill Up Page -->

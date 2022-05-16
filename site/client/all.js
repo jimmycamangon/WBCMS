@@ -92,7 +92,10 @@ $(document).ready(function() {
     e.stopPropagation();
     
    $(this).closest('.apto-dropdown-wrapper').find('.dropdown-menu').toggleClass('show');
+   // Notification
+   $(this).closest('.apto-dropdown-wrapper').find('.dropdown-menu-notif').toggleClass('show');
   });
+
   
   
   $('body').on('click','.dropdown-item', function(e){
@@ -104,6 +107,22 @@ $(document).ready(function() {
     let $btn           = $(this).closest('.apto-dropdown-wrapper').find('.apto-trigger-dropdown');
     
    $(this).closest('.apto-dropdown-wrapper').find('.dropdown-menu').removeClass('show').attr('data-selected', $selectedValue);
+    
+    $btn.find('svg').remove();
+    $btn.prepend($icon[0].outerHTML);
+    
+  });
+
+// Notification
+    $('body').on('click','.dropdown-item-notif', function(e){
+    
+    e.stopPropagation();
+    
+    let $selectedValue = $(this).val(); 
+    let $icon          = $(this).find('svg');
+    let $btn           = $(this).closest('.apto-dropdown-wrapper').find('.apto-trigger-dropdown');
+    
+   $(this).closest('.apto-dropdown-wrapper').find('.dropdown-menu-notif').removeClass('show').attr('data-selected', $selectedValue);
     
     $btn.find('svg').remove();
     $btn.prepend($icon[0].outerHTML);
@@ -162,3 +181,4 @@ function myFunction() {
    var element = document.body;
    element.classList.toggle("dark-mode");
 }
+
