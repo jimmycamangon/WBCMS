@@ -1,81 +1,120 @@
- <link rel="stylesheet" type="text/css" href="css/nav.css">
+ 
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">WBCMS</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="#">
+          <i class='bx bx-grid-alt' ></i>
+          <span class="link_name">Dashboard</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Dashboard</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-collection' ></i>
+            <span class="link_name">Requests</span>
+          </a>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Requests</a></li>
+          <li><a href="#">Clearance</a></li>
+          <li><a href="#">JavaScript</a></li>
+          <li><a href="#">PHP & MySQL</a></li>
+        </ul>
+      </li>
+      <hr>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-book-alt' ></i>
+            <span class="link_name">Posts</span>
+          </a>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Posts</a></li>
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">Login Form</a></li>
+          <li><a href="#">Card Design</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-pie-chart-alt-2' ></i>
+          <span class="link_name">Analytics</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Analytics</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-line-chart' ></i>
+          <span class="link_name">Chart</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Chart</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-plug' ></i>
+            <span class="link_name">Plugins</span>
+          </a>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Plugins</a></li>
+          <li><a href="#">UI Face</a></li>
+          <li><a href="#">Pigments</a></li>
+          <li><a href="#">Box Icons</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-compass' ></i>
+          <span class="link_name">Explore</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Explore</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-history'></i>
+          <span class="link_name">History</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">History</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cog' ></i>
+          <span class="link_name">Setting</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Setting</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+        <!--<img src="image/profile.jpg" alt="profileImg">-->
+      </div>
+      <div class="name-job">
+        <div class="profile_name">Jims</div>
+        <div class="job">Admin</div>
+      </div>
+      <a href="logout.php"><i class='bx bx-log-out' ></i></a>
+    </div>
+  </li>
+</ul>
+  </div>
 
-            <div class="top__nav">
-               Navbar
-            </div>
-              <div class="nav" id="nav">
-                  <nav class="nav__content">
-                      <div class="nav__toggle" id="nav-toggle" onclick="openNav()">
-                          <i class='bx bx-chevron-right' ></i>
-                      </div>
-          
-                      <a href="#" class="nav__logo">
-                         <img src="../assets/img/Logo.png">
-                          <span class="nav__logo-name">WBCMS</span>
-                      </a>
-          
-                      <div class="nav__list">
-                          <a href="index.php" class="nav__link">
-                             <i class='bx bxs-dashboard' ></i>
-                              <span class="nav__name">Dashboard</span>
-                          </a>
-          
-                          <a href="features_page.php" class="nav__link">
-                              <i class='bx bx-file'></i>
-                              <span class="nav__name">Features</span>
-                          </a>
-          
-                          <a href="#" class="nav__link">
-                              <i class='bx bx-envelope' ></i>
-                              <span class="nav__name">Messages</span>
-                          </a>
-          
-                          <a href="../logout.php" class="nav__link">
-                              <i class='bx bx-bar-chart-square' ></i>
-                              <span class="nav__name">Statistic</span>
-                          </a>
-          
-                          <a href="#" class="nav__link" id="toggle">
-                              <i class='bx bxs-moon'></i>
-                              <span class="nav__name">Dark Theme</span>
-                          </a>
-                      </div>
-                  </nav>
-              </div>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-   
-// Index Page JS
-/*=============== LINK ACTIVE ===============*/
-const linkColor = document.querySelectorAll('.nav__link')
-
-function colorLink(){
-    linkColor.forEach(l => l.classList.remove('active-link'))
-    this.classList.add('active-link')
-}
-
-linkColor.forEach(l => l.addEventListener('click', colorLink))
-
-/*=============== SHOW HIDDEN MENU ===============*/
-const showMenu = (toggleId, navbarId) =>{
-    const toggle = document.getElementById(toggleId),
-    navbar = document.getElementById(navbarId)
-
-    if(toggle && navbar){
-        toggle.addEventListener('click', ()=>{
-            /* Show menu */
-            navbar.classList.toggle('show-menu')
-            /* Rotate toggle icon */
-            toggle.classList.toggle('rotate-icon')
-        })
-    }
-}
-showMenu('nav-toggle','nav');
-
-
-function openNav() {
-  document.getElementById("msg-icn").style.display = "none";
-}
-</script>
