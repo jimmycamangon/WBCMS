@@ -5,13 +5,11 @@
 function addmsg(type, msg){
  
 $('#notification_count').html(msg);
- 
 }
  
  function cutmsg(type, msg1){
  
 $('#notification_count').html(msg1);
- 
 }
 
 
@@ -25,6 +23,7 @@ cache: false,
 timeout:50000,
  
 success: function(data){
+  
 cutmsg("new", data);
 setTimeout(
 waitForMsg,

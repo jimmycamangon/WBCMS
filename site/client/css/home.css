@@ -331,7 +331,8 @@ a {
   width: 50%;
 }
 .left__box1 img {
-  width: 200px;
+  width: auto;
+  height: 200px;
   border-radius: 10em;
 }
 .left__box1 .message__not__verified {
@@ -732,6 +733,7 @@ border-radius: 9px;
 position: absolute;
 font-size: 1rem;
 z-index: 1;
+
 }
 
 

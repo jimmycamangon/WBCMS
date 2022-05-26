@@ -150,13 +150,110 @@
             <input type="text" name="contact">
            <?php }?>
       </div>
+
+
       <div class="input-group">
-        <label for="address">Full Address(Blk, Lot):</label>
-           <?php if (isset($_GET['address'])) { ?>
-          <input type="text" name="address" id="address"
-           value="<?php echo $_GET['address']; ?>">
+        <label for="telephone">Telephone Number</label>
+           <?php if (isset($_GET['telephone'])) { ?>
+          <input type="text" name="telephone" id="telephone"
+           value="<?php echo $_GET['telephone']; ?>">
            <?php }else{ ?>
-            <input type="text" name="address">
+            <input type="text" name="telephone">
+           <?php }?>
+      </div>
+
+
+
+     
+      <div class="input-group">
+        <label for="purok">Purok</label>
+        <?php if (isset($_GET['purok'])) { ?>
+        <select name="purok" id="purok" value="<?php echo $_GET['purok']; ?>">
+          <option value="Purok 1">Purok 1</option>
+          <option value="Purok 2">Purok 2</option>
+          <option value="Purok 3">Purok 3</option>
+          <option value="Purok 4">Purok 4</option>
+          <option value="Purok 5">Purok 5</option>
+          <option value="Purok 6">Purok 6</option>
+          <option value="Purok 6(Southville-4)">Purok 6(Southville-4)</option>
+        </select>
+        <?php }else{ ?>
+        <select name="purok" id="purok">
+         <option value="Purok 1">Purok 1</option>
+          <option value="Purok 2">Purok 2</option>
+          <option value="Purok 3">Purok 3</option>
+          <option value="Purok 4">Purok 4</option>
+          <option value="Purok 5">Purok 5</option>
+          <option value="Purok 6">Purok 6</option>
+          <option value="Purok 6(Southville-4)">Purok 6(Southville-4)</option>
+        </select>
+        </select>
+        <?php }?>        
+      </div>
+
+
+       <div class="input-group">
+        <label for="house">House Number</label>
+          <?php if (isset($_GET['house'])) { ?>
+          <input type="text" name="house" id="house"
+           value="<?php echo $_GET['house']; ?>">
+           <?php }else{ ?>
+            <input type="text" name="house">
+           <?php }?>
+      </div>
+
+ <div class="input-group">
+        <label for="phase">Phase</label>
+        <?php if (isset($_GET['phase'])) { ?>
+        <select name="phase" id="phase" value="<?php echo $_GET['purok']; ?>">
+          <option selected="true" disabled="disabled">Select Phase</option>
+          <option value="Phase 1">Phase 1</option>
+          <option value="Phase 2">Phase 2</option>
+          <option value="Phase 3">Phase 3</option>
+          <option value="Phase 4">Phase 4</option>
+          <option value="Phase 5">Phase 5</option>
+          <option value="Phase 6">Phase 6</option>
+          <option value="Phase 7">Phase 7</option>
+          <option value="Phase 8">Phase 8</option>
+          <option value="Phase 9">Phase 9</option>
+      
+        </select>
+        <?php }else{ ?>
+        <select name="phase" id="phase">
+      <option selected="true" disabled="disabled">Select Phase</option>
+      <option value="Phase 1">Phase 1</option>
+          <option value="Phase 2">Phase 2</option>
+          <option value="Phase 3">Phase 3</option>
+          <option value="Phase 4">Phase 4</option>
+          <option value="Phase 5">Phase 5</option>
+          <option value="Phase 6">Phase 6</option>
+          <option value="Phase 7">Phase 7</option>
+          <option value="Phase 8">Phase 8</option>
+          <option value="Phase 9">Phase 9</option>
+      
+        </select>
+        <?php }?>        
+      </div>
+
+       <div class="input-group">
+        <label for="block">Block</label>
+          <?php if (isset($_GET['block'])) { ?>
+          <input type="text" name="block" id="block"
+           value="<?php echo $_GET['block']; ?>">
+           <?php }else{ ?>
+            <input type="text" name="block">
+           <?php }?>
+      </div>
+
+
+
+       <div class="input-group">
+        <label for="lot">Lot</label>
+          <?php if (isset($_GET['lot'])) { ?>
+          <input type="text" name="lot" id="lot"
+           value="<?php echo $_GET['lot']; ?>">
+           <?php }else{ ?>
+            <input type="text" name="lot">
            <?php }?>
       </div>
 

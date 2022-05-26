@@ -1,164 +1,81 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-<link rel="stylesheet" href="css/nav.css">
-<link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-</head>
+ <link rel="stylesheet" type="text/css" href="css/nav.css">
+
+            <div class="top__nav">
+               Navbar
+            </div>
+              <div class="nav" id="nav">
+                  <nav class="nav__content">
+                      <div class="nav__toggle" id="nav-toggle" onclick="openNav()">
+                          <i class='bx bx-chevron-right' ></i>
+                      </div>
+          
+                      <a href="#" class="nav__logo">
+                         <img src="../assets/img/Logo.png">
+                          <span class="nav__logo-name">WBCMS</span>
+                      </a>
+          
+                      <div class="nav__list">
+                          <a href="index.php" class="nav__link">
+                             <i class='bx bxs-dashboard' ></i>
+                              <span class="nav__name">Dashboard</span>
+                          </a>
+          
+                          <a href="features_page.php" class="nav__link">
+                              <i class='bx bx-file'></i>
+                              <span class="nav__name">Features</span>
+                          </a>
+          
+                          <a href="#" class="nav__link">
+                              <i class='bx bx-envelope' ></i>
+                              <span class="nav__name">Messages</span>
+                          </a>
+          
+                          <a href="../logout.php" class="nav__link">
+                              <i class='bx bx-bar-chart-square' ></i>
+                              <span class="nav__name">Statistic</span>
+                          </a>
+          
+                          <a href="#" class="nav__link" id="toggle">
+                              <i class='bx bxs-moon'></i>
+                              <span class="nav__name">Dark Theme</span>
+                          </a>
+                      </div>
+                  </nav>
+              </div>
 
 
-
-<body>
-<nav class="main-menu">
-
-<div class="scrollbar" id="style-1">
-      
-<ul>
-
- <div class="fa logo_head">
-    <a class="logo_img" href="#">
-        <img src="../assets/img/Logo.png">
-    </a> 
- </div> 
-<li>                                   
-<a href="#">
-<i class="fa fa-home fa-lg"></i>
-<span class="nav-text">Dashboard</span>
-</a>
-</li>   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
    
-<li>                                 
-<a href="http://startific.com">
-<i class="fa fa-user fa-lg"></i>
-<span class="nav-text">Login</span>
-</a>
-</li>   
+// Index Page JS
+/*=============== LINK ACTIVE ===============*/
+const linkColor = document.querySelectorAll('.nav__link')
 
-    
-<li>                                 
-<a href="http://startific.com">
-<i class="fa fa-envelope-o fa-lg"></i>
-<span class="nav-text">Contact</span>
-</a>
-</li>   
-  
+function colorLink(){
+    linkColor.forEach(l => l.classList.remove('active-link'))
+    this.classList.add('active-link')
+}
+
+linkColor.forEach(l => l.addEventListener('click', colorLink))
+
+/*=============== SHOW HIDDEN MENU ===============*/
+const showMenu = (toggleId, navbarId) =>{
+    const toggle = document.getElementById(toggleId),
+    navbar = document.getElementById(navbarId)
+
+    if(toggle && navbar){
+        toggle.addEventListener('click', ()=>{
+            /* Show menu */
+            navbar.classList.toggle('show-menu')
+            /* Rotate toggle icon */
+            toggle.classList.toggle('rotate-icon')
+        })
+    }
+}
+showMenu('nav-toggle','nav');
 
 
- 
-
-                            
-
-  
-  
-</li>
-<li class="darkerlishadow">
-<a href="http://startific.com">
-<i class="fa fa-clock-o fa-lg"></i>
-<span class="nav-text">News</span>
-</a>
-</li>
-  
-<li class="darkerli">
-<a href="http://startific.com">
-<i class="fa fa-desktop fa-lg"></i>
-<span class="nav-text">Technology</span>
-</a>
-</li>
-  
-<li class="darkerli">
-<a href="http://startific.com">
-<i class="fa fa-plane fa-lg"></i>
-<span class="nav-text">Travel</span>
-</a>
-</li>
-  
-<li class="darkerli">
-<a href="http://startific.com">
-<i class="fa fa-shopping-cart"></i>
- <span class="nav-text">Shopping</span>
-</a>
-</li>
-  
-<li class="darkerli">
-<a href="http://startific.com">
-<i class="fa fa-microphone fa-lg"></i>
-<span class="nav-text">Film & Music</span>
-</a>
-</li>
-
-<li class="darkerli">
-<a href="http://startific.com">
-<i class="fa fa-flask fa-lg"></i>
-<span class="nav-text">Web Tools</span>
-</a>
-</li>
-  
-<li class="darkerli">
-<a href="http://startific.com">
-<i class="fa fa-picture-o fa-lg"></i>
-<span class="nav-text">Art & Design</span>
-</a>
-</li>
-
-<li class="darkerli">
-<a href="http://startific.com">
-<i class="fa fa-align-left fa-lg"></i>
-<span class="nav-text">Magazines
-</span>
-</a>
-</li>
-  
-<li class="darkerli">
-<a href="http://startific.com">
-<i class="fa fa-gamepad fa-lg"></i>
-<span class="nav-text">Games</span>
-</a>
-</li>
-  
-<li class="darkerli">
-<a href="http://startific.com">
-<i class="fa fa-glass fa-lg"></i>
-<span class="nav-text">Life & Style
-</span>
-</a>
-</li>
-  
-<li class="darkerlishadowdown">
-<a href="http://startific.com">
-<i class="fa fa-rocket fa-lg"></i>
-<span class="nav-text">Fun</span>
-</a>
-</li>
- 
-  
-</ul>
-
-  
-<li>
-                                   
-<a href="http://startific.com">
-<i class="fa fa-question-circle fa-lg"></i>
-<span class="nav-text">Help</span>
-</a>
-</li>   
-    
-  
-<ul class="logout">
-<li>
-                   <a href="http://startific.com">
-                         <i class="fa fa-lightbulb-o fa-lg"></i>
-                        <span class="nav-text">
-                            BLOG 
-                        </span>
-                        
-                    </a>
-</li>  
-</ul>
-        </nav>
-        
-  
-
-			
-  
-  
-</body>
-</html>
+function openNav() {
+  document.getElementById("msg-icn").style.display = "none";
+}
+</script>

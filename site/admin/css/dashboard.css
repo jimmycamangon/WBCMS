@@ -1,0 +1,104 @@
+
+/* ==================================================================================
+  1. Global Styles                                                     
+=====================================================================================*/
+
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+        /* ====== Transition ====== */
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.3s ease;
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Poppins', sans-serif;
+
+}
+
+html {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+    /* Fonts */
+  --text-white: hsl(228, 8%, 50%);
+  --icon-white: #fff;
+  --text-dark: #142136;
+
+  /* Light Theme*/
+  --bg-grey-light: hsl(228, 100%, 99%);
+  --bg-border-light: hsla(228, 81%, 49%, .30);
+  --bg-white: #ffffff;
+  --bg-blue-dark: #142136;
+  --bg-indigo: #6366f1;
+  --bg-light-gradient: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);;
+
+  /*Font*/
+  --body-font: 'Poppins', sans-serif;
+
+  font-family: var(--body-font);
+  line-height: 1.7;
+  background-color: var(--bg-grey-light);
+  transition: .4s;
+  width: 100%;
+  height: 100%;
+  transition: var(--tran-04);
+  overflow-x: hidden;
+}
+.dark {
+  --text-white: #e6e6e6;
+  --icon-white: #e6e6e6;
+  --text-dark: #ffffff;
+  --bg-grey-light: #0d1117;
+  --bg-border-light: #383838;
+  --bg-white: #0d1117;
+  --bg-blue-dark: #142136;
+  --bg-indigo: #0d1117;
+  --bg-light-gradient: linear-gradient(159deg, rgba(0,0,0,1) 47%, rgba(0,113,185,1) 80%, rgba(0,155,255,1) 100%);
+    transition: .4s;
+
+}
+
+.main {
+  width: 70%;
+  height:200px;
+  margin: auto 150px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: red;
+  gap: 2em;
+}
+.right__container {
+    height: 100%;
+  background: blue;
+  width: 20%; 
+  float: right;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+h1 {
+  color: var(--text-white);
+}
+  .top__nav {
+    width: 100%;
+    height: 50px;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-white);
+  }
+@media screen and (max-width: 1600px) {
+  .main {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+}
