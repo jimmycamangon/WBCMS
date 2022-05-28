@@ -196,7 +196,7 @@
           <!-- Box Num 4 -->
           <div class="home__box">
             <?php 
-              $query = "SELECT clearance.status, clearance.oauth_id, requests.oauth_id, requests.type FROM clearance INNER JOIN requests ON clearance.oauth_id = requests.oauth_id WHERE requests.oauth_id = '$id' ORDER BY requests.id ASC LIMIT 3";
+              $query = "SELECT clearance.request_status, clearance.oauth_id, requests.oauth_id, requests.type FROM clearance INNER JOIN requests ON clearance.oauth_id = requests.oauth_id WHERE requests.oauth_id = '$id' ORDER BY requests.id ASC LIMIT 3";
               $result = mysqli_query($conn, $query);
 
                  if ($result -> num_rows > 0) {
@@ -209,7 +209,7 @@
                             <span class="progress-count">1</span>
                             <span class="progress-label">To Pay</span>
                         </li>
-                       <?php if($row['status'] == 'Pending') { ?>
+                       <?php if($row['request_status'] == 'Pending') { ?>
                         <li class="step-wizard-item current-item">
                             <span class="progress-count">2</span>
                             <span class="progress-label">Pending</span>
@@ -220,7 +220,7 @@
                             <span class="progress-label">Pending</span>
                         </li>
                        <?php }?>
-                       <?php if($row['status'] == 'Processing') { ?>
+                       <?php if($row['request_status'] == 'Processing') { ?>
                         <li class="step-wizard-item current-item">
                             <span class="progress-count">3</span>
                             <span class="progress-label">Processing</span>
@@ -231,7 +231,7 @@
                             <span class="progress-label">Processing</span>
                         </li>
                       <?php } ?>
-                      <?php if($row['status'] == 'To_Claim') { ?>
+                      <?php if($row['request_status'] == 'To_Claim') { ?>
                         <li class="step-wizard-item current-item">
                             <span class="progress-count">4</span>
                             <span class="progress-label">To Claim</span>

@@ -33,7 +33,7 @@ if(isset($_POST['clearance_submit'])) {
     header("Location: ../clearance_fill_up.php?error= User already Requested");
 	  } else {
 	   // Insert into requests table
-	   $requests = "INSERT INTO requests (oauth_id, name, type, description, request_status, created_at) VALUES ('$id','$first_name $sur_name','$type','Requesting for Clearance','unread', '$since')";
+	   $requests = "INSERT INTO requests (oauth_id, name, type, description, status, created_at) VALUES ('$id','$first_name $sur_name','$type','Requesting for Clearance','unread', '$since')";
 	   $requests_query = mysqli_query($conn,$requests);
 	   // Insert into clearance table
 	   $sql = "INSERT INTO clearance (oauth_id, sur_name, first_name, middle_name, full_address, precint_number, purpose, request_status, created_at) VALUES ('$id','$sur_name', '$first_name', '$middle_name', '$full_address', '$precint_number', '$payment_method', '$request_status', '$since')";

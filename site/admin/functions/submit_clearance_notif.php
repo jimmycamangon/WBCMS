@@ -29,7 +29,7 @@ if(isset($_POST['clearance_submit'])) {
     echo '<script>alert("Admin already requested");</script';
 	  } else {
 
-	   $set = "UPDATE clearance SET status = 'To_Claim' WHERE oauth_id = '$oauth_id'";
+	   $set = "UPDATE clearance SET request_status = 'To_Claim' WHERE oauth_id = '$oauth_id'";
         $set_result = $conn->query($set);
 	   // Insert into requests table
 	   $requests = "INSERT INTO admin_notification (oauth_id, subject, description, date_time, status, created_at) VALUES ('$oauth_id','$subject','$description','$date_time','unread','$since')";

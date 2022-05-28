@@ -42,12 +42,26 @@ if(isset($_POST['cancel'])) {
 
 
 	<?php include 'includes/nav.php';?>
+        <?php 
 
+              $result = mysqli_query($conn,"SELECT clearance.oauth_id, users.oauth_id, clearance.request_status, users.status FROM clearance INNER JOIN users ON clearance.oauth_id = users.oauth_id WHERE clearance.oauth_id = '$id'");
+              $row  = mysqli_fetch_assoc($result);
+
+              $check = mysqli_query($conn,"SELECT status FROM users WHERE oauth_id = '$id'");
+              $check_row  = mysqli_fetch_assoc($check);?>
 
 <!-- Features Page -->
         <div class="top__nav2">
           <div class="top__content2">
-            <h2>Features and Services</h2>
+            <h2>Features and Services</h2>          
+            <?php  if($check_row['status'] == 'not_verified') {?>
+              / Account not verified
+            <?php }?>
+
+
+            <?php  if($check_row['status'] == 'trial') {?>
+              / Account in Trial
+            <?php }?>
 
           </div>
         </div>
@@ -64,38 +78,28 @@ if(isset($_POST['cancel'])) {
         ?>
         <div class="feature__container">
           <div class="feature__box">
+            <br>
           	<div class="feature__head">
           		<img src="../assets/img/SVG/Clearance_Image.png">
           	</div>
           	<div class="feature__content">
           		<h1>Clearance</h1>
           		<br>
-          		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          		tempor</p>
+          		<p>Request for clearance for your required documents wether its hospital, License Renewal, Employement and etc.</p>
           		<br>
        <div class="feature__buttons">
               <!-- Check if user already requested -->
-              <?php 
 
-              $result = mysqli_query($conn,"SELECT clearance.oauth_id, users.oauth_id, clearance.request_status, users.status FROM clearance INNER JOIN users ON clearance.oauth_id = users.oauth_id WHERE oauth_id = '$id'");
-              $row  = mysqli_fetch_assoc($result);
-
-              if($result -> num_rows == 1 AND $row['request_status'] == 'Pending') {?>
+             <?php if($result -> num_rows == 1 AND $row['request_status'] == 'Pending') {?>
                 <div class="buttons"><label  class="btn" for="check" style="background: #E74B37;"><span>Cancel</span></label></div><p class="pending">Request Pending</p>
 
-              <?php } if($result -> num_rows == 1 AND $row['status'] == 'Processing') {?>
+              <?php } if($result -> num_rows == 1 AND $row['request_status'] == 'Processing') {?>
                <p class="pending">Request in Process</p>
-              <?php } if($result -> num_rows == 1 AND $row['status'] == 'trial') {?>
+              <?php } if($check_row['status'] == 'trial') {?>
               <form action="" method="POST">
                 <button type="submit" class="update" name="start"><span> Get Started </span></button>  
               </form>
-              <?php } if($result -> num_rows == 1 AND $row['status'] == 'not_verified') {?>
-               <p class="pending">Request in Process</p>
-              <?php } if($result -> num_rows == 0) { ?>
-          		<form action="" method="POST">
-                <button type="submit" class="update" name="start"><span> Get Started </span></button>  
-              </form>
-              <?php }?>
+            <?php }?>
             </div>
           	</div>
           </div>
