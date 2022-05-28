@@ -7,18 +7,18 @@
 
 session_start();
 include '../../includes/conn.php';
-$id = $_SESSION['user_id'];
-$select_notif = "SELECT * FROM admin_notification WHERE oauth_id = '$id'";
+$select_notif = "SELECT * FROM requests";
 $select_notif_result = mysqli_query($conn, $select_notif);
 
 if ($select_notif_result -> num_rows > 0) {
    while ($notif_row = $select_notif_result->fetch_assoc()) {
+    $id = $notif_row['id'];
 
      ?>
-     <a href="#"><button type="button" value="logout" tabindex="0" class="dropdown-item-notif">
+    <button type="button" value="logout" tabindex="0" class="dropdown-item-notif">
       <br>
       <div class="notif_head">
-         <img class="card__thumb" src="../assets/img/SVG/admin-icon.png" alt="" style="width: 30px!important;height: 30px!important;"> Admin -
+         <?php echo $notif_row['name'];?> 
           <!-- Time Ago Function -->
          <?php 
          if(function_exists("TimeAgo")){
@@ -53,15 +53,15 @@ if ($select_notif_result -> num_rows > 0) {
                        }
                        $date = $notif_row['created_at'];
 
-                       echo '<p style="font-weight: 100!important">'. TimeAgo($date, date("Y-m-d H:i:s")). '</p>';
+                       echo '<p style="font-weight: 100!important; padding-top:1em;">'. TimeAgo($date, date("Y-m-d H:i:s")). '</p>';
                        ?> 
       </div> 
-      <?php echo $notif_row['subject'];?><br><br>
+      <?php echo $notif_row['type'];?><br><br>
       <p style="font-weight: 100!important"><?php echo $notif_row['description'];?></p>
                                     
-   </button></a>
+   </button>
 <?php }
 } else {
-      echo "<div style='display:flex;justify-content:center;align-items:center;background-color:#fff;height:100px;'><p>No Notification Yet</p></div>";
+      echo "<div style='display:flex;justify-content:center;align-items:center;background-color:#fff;color:#000;height:100px;'><p>No Notification Yet</p></div>";
          }?>
 </div>

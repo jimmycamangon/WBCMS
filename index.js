@@ -65,8 +65,8 @@ return document.querySelector(`.${className}`);
 const sections = [
 selectElementByClass('register'),
 selectElementByClass('verify'),
+selectElementByClass('payment'),
 selectElementByClass('fill'),
-selectElementByClass('generate'),
 selectElementByClass('waiting'),
 selectElementByClass('features'),
 ];
@@ -74,8 +74,8 @@ selectElementByClass('features'),
 const navItems = {
 register: selectElementByClass('register_item'),
 verify: selectElementByClass('verify_item'),
+payment: selectElementByClass('payment_item'),
 fill: selectElementByClass('fill_item'),
-generate: selectElementByClass('generate_item'),
 waiting: selectElementByClass('waiting_item'),
 features: selectElementByClass('features_item'),
 };

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2022 at 10:56 AM
+-- Generation Time: May 28, 2022 at 09:53 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -44,6 +44,22 @@ INSERT INTO `admin` (`id`, `user_name`, `password`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin_notification`
+--
+
+CREATE TABLE `admin_notification` (
+  `id` int(255) NOT NULL,
+  `oauth_id` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `date_time` datetime NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `clearance`
 --
 
@@ -56,7 +72,7 @@ CREATE TABLE `clearance` (
   `full_address` varchar(255) NOT NULL,
   `precint_number` varchar(255) NOT NULL,
   `purpose` varchar(255) NOT NULL,
-  `status` varchar(255) NOT NULL,
+  `request_status` varchar(255) NOT NULL,
   `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -64,32 +80,8 @@ CREATE TABLE `clearance` (
 -- Dumping data for table `clearance`
 --
 
-INSERT INTO `clearance` (`id`, `oauth_id`, `sur_name`, `first_name`, `middle_name`, `full_address`, `precint_number`, `purpose`, `status`, `created_at`) VALUES
-(40, '117026105942842883136', 'Camangon', 'Jimmy', 'Basaran', 'Barangay Caingin Purok 4 City of Sta.Rosa Laguna', '67 A', 'License Renewal', 'Processing', '2022-05-16'),
-(41, '1489140982', 'Camangon', 'Jimmy', 'Basaran', 'Barangay Caingin Purok 4 City of Sta.Rosa Laguna', '67 A', 'License Renewal', 'Pending', '2022-05-16');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `notifications`
---
-
-CREATE TABLE `notifications` (
-  `id` int(50) NOT NULL,
-  `oauth_id` varchar(255) NOT NULL,
-  `subject` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `status` varchar(50) NOT NULL,
-  `created_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `notifications`
---
-
-INSERT INTO `notifications` (`id`, `oauth_id`, `subject`, `description`, `status`, `created_at`) VALUES
-(2, '117026105942842883136', 'Clearance', 'Your Clearance Request is now in process.', 'read', '2022-05-16 02:33:15'),
-(4, '117026105942842883136', 'Barangay ID', 'Your Barangay ID is now in Process', 'read', '2022-05-16 02:48:15');
+INSERT INTO `clearance` (`id`, `oauth_id`, `sur_name`, `first_name`, `middle_name`, `full_address`, `precint_number`, `purpose`, `request_status`, `created_at`) VALUES
+(48, '117026105942842883136', 'Camangon', 'Jimmy', 'Basaran', 'Barangay Caingin Purok 4 City of Sta.Rosa Laguna', '67 A', 'Travel Abroad', 'Pending', '2022-05-28');
 
 -- --------------------------------------------------------
 
@@ -111,8 +103,7 @@ CREATE TABLE `payment` (
 --
 
 INSERT INTO `payment` (`id`, `oauth_id`, `tracking_number`, `full_name`, `payment_method`, `reference_number`) VALUES
-(80, '117026105942842883136', 'xDPQbGsshGeXSpnu4VGV', 'jimmy basaran camangon', 'Cash on Pick Up', ''),
-(81, '1489140982', 'xjsQEJT6RhMtMBdjOk4h', 'jimmy basaran camangon', 'Cash on Pick Up', '');
+(89, '117026105942842883136', 'NcFjpGrYxE2zxkFj3mjC', 'jimmy basaran camangon', 'Cash on Pick Up', '');
 
 -- --------------------------------------------------------
 
@@ -123,16 +114,19 @@ INSERT INTO `payment` (`id`, `oauth_id`, `tracking_number`, `full_name`, `paymen
 CREATE TABLE `requests` (
   `id` int(11) NOT NULL,
   `oauth_id` varchar(255) NOT NULL,
-  `type` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `requests`
 --
 
-INSERT INTO `requests` (`id`, `oauth_id`, `type`) VALUES
-(13, '117026105942842883136', 'Clearance'),
-(14, '1489140982', 'Clearance');
+INSERT INTO `requests` (`id`, `oauth_id`, `name`, `type`, `description`, `status`, `created_at`) VALUES
+(21, '117026105942842883136', 'Jimmy Camangon', 'Clearance', 'Requesting for Clearance', 'unread', '2022-05-28 09:45:09');
 
 -- --------------------------------------------------------
 
@@ -193,12 +187,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `oauth_provider`, `oauth_id`, `name`, `first_name`, `middle_name`, `last_name`, `suffix`, `age`, `birthday`, `gender`, `relationship_status`, `full_address`, `email`, `contact`, `user_name`, `password`, `picture`, `resident`, `status`, `created_at`, `modified_at`) VALUES
-(165, 'google', '104019995535113861480', 'CabangananEdward', 'Cabanganan', '', 'Edward', '', 0, 0, '', '', '', 'edwardcabanganan@gmail.com', 0, '', '', 'https://lh3.googleusercontent.com/a-/AOh14GhuweREol-tbAhSDfptf6C_RVCwiGr4jTQBI52G2Q=s96-c', '', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(176, 'Form Registration', '1489140982', 'jimmy basaran camangon', 'jimmy', 'basaran', 'camangon', 'Jr', 21, 2022, 'Male', 'Single', 'SOUTHVILLE-4 PH1 BLK 10 LOT 09 BRGY.CAINGIN SANTA ROSA LAGUNA', 'jimmy_camangon@yahoo.com', 2147483647, 'jims', '827ccb0eea8a706c4c34a16891f84e7b', '', '', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(180, 'Form Registration', '1553861643', '', 'edward', 'bermas', 'cabanganan', 'None', 21, 2022, 'Male', 'Single', 'SOUTHVILLE-4 PH1 BLK 10 LOT 09 BRGY.CAINGIN SANTA ROSA LAGUNA', 'edwardcabanganan@yahoo.com', 2147483647, 'Kaido', '827ccb0eea8a706c4c34a16891f84e7b', '', 'Student', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(181, 'google', '117026105942842883136', 'Camangon,Jimmy Jr B.', 'Camangon,', '', 'Jimmy Jr B.', '', 0, 0, '', '', '', 'jimmycamangon7@gmail.com', 0, '', '', 'https://lh3.googleusercontent.com/a-/AOh14Gj9htl2mMKMTxIiHvBgiPaubdDfRD2slQsT1D0qOA=s96-c', '', 'processing', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(182, 'google', '109041773047886311393', 'jimmycamangon', 'jimmy', '', 'camangon', '', 0, 0, '', '', '', 'jimmycamangon30@gmail.com', 0, '', '', 'https://lh3.googleusercontent.com/a/AATXAJw7jNeJDguE9N8dVftZxDzqIJIa_iZSaWsYRdXD=s96-c', '', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(183, 'facebook', '7178740185532065', 'Jimmy B. Camangon', 'Jimmy', '', 'Camangon', '', 0, 0, '', '', '', '', 0, '', '', 'https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=7178740185532065&height=50&width=50&ext=1655257420&hash=AeTqazHy81iOU4egDiU', '', 'not_verified', '2022-05-14 13:37:29', '0000-00-00 00:00:00');
+(184, 'google', '117026105942842883136', 'Camangon,Jimmy Jr B.', 'Camangon,', '', 'Jimmy Jr B.', '', 0, 0, '', '', '', 'jimmycamangon7@gmail.com', 0, '', '', 'https://lh3.googleusercontent.com/a-/AOh14Gj9htl2mMKMTxIiHvBgiPaubdDfRD2slQsT1D0qOA=s96-c', '', 'not_verified', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -214,13 +203,6 @@ CREATE TABLE `verification` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `verification`
---
-
-INSERT INTO `verification` (`id`, `oauth_id`, `valid_id`, `img_upload`) VALUES
-(3, '1553861643', 'Student ID', 'ID PICTURE.jpg');
-
---
 -- Indexes for dumped tables
 --
 
@@ -231,15 +213,15 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `clearance`
+-- Indexes for table `admin_notification`
 --
-ALTER TABLE `clearance`
+ALTER TABLE `admin_notification`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `notifications`
+-- Indexes for table `clearance`
 --
-ALTER TABLE `notifications`
+ALTER TABLE `clearance`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -283,28 +265,28 @@ ALTER TABLE `admin`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `admin_notification`
+--
+ALTER TABLE `admin_notification`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `clearance`
 --
 ALTER TABLE `clearance`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
-
---
--- AUTO_INCREMENT for table `notifications`
---
-ALTER TABLE `notifications`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `updates`
@@ -316,7 +298,7 @@ ALTER TABLE `updates`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=184;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
 
 --
 -- AUTO_INCREMENT for table `verification`

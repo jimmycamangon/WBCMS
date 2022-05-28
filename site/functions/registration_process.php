@@ -13,7 +13,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 	}
     $oauth_provider= "Form Registration";
 	$oauth_id = mt_rand();
-	$status = "not_verified";
+	$status = "trial";
 	$fname = validate($_POST['fname']);
     $mname = validate($_POST['mname']);
     $lname = validate($_POST['lname']);

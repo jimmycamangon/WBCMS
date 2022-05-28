@@ -39,6 +39,7 @@ $user = $result->fetch_all(MYSQLI_ASSOC);
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link  type="text/css" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <title>Dashboard</title>
 </head>
 <body>
@@ -50,60 +51,57 @@ $user = $result->fetch_all(MYSQLI_ASSOC);
       <a class="navbar-brand" href="#"> Dashboard </a>
       </div>
 
-      <div class="top-rigt">
-      <div class="top-navbar">
-        <nav class="navbar navbar-expand-lg">
-          <div class="container-fluid">
+<div class="top__nav">
+          <div class="top__content">
+            <div class="top__profile">
+              <img src="<?php if(!isset($_SESSION['picture'])) { echo '../assets/img/alt-image.png'; } else { echo $_SESSION["picture"]; } ?>" alt="Image">
+              <h1><?php echo $_SESSION['user_name'] ?></h1></div>
 
 
-            <button class="d-inline-block d-lg-none ml-auto more-button" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="material-icons">more_vert</span>
-          </button>
+             <!-- Drop Down -->
+            <div class="apto-dropdown-wrapper">
+               <button class="apto-trigger-dropdown" id="notificationLink" onclick = "removeNotification()">
+               <span id="notification_count"></span> <i class='bx bxs-bell'></i>
+               </button>
+               <div class="dropdown-menu-notif" data-selected="logout">
+               <span id="noti_message"></span>
+               </div>
+            </div>
 
-          <div class="collapse navbar-collapse d-lg-block d-xl-block d-sm-none d-md-none d-none" id="navbarSupportedContent">
-            <ul class="nav navbar-nav ml-auto">   
-              <li class="dropdown nav-item">
-                <a href="#" class="nav-link" data-toggle="dropdown" id="notificationLink"  onclick = "removeNotification()">
-                 <span class="material-icons">notifications</span>
-                 <span class="notification" id="notification_count"></span>
-               </a>
-               <ul class="dropdown-menu">
-                <li>
-                  <span id="noti_message"></span>
-                </li>
-                <li>
-                  <center>
-                    <form action="clear_message.php" method="post">
-                      <input type="submit" name="clear" style="font-size:0.80rem; border: none; cursor: pointer; background: transparent;" value="Clear">
-                    </form></center>
-                  </li>
+                         <!-- Drop Down -->
+            <div class="apto-dropdown-wrapper">
+               <button class="apto-trigger-dropdown">
+                  <i class='bx bx-caret-down'></i>
+               </button>
+               <div class="dropdown-menu" data-selected="logout">
+                  
+                  <a href="../logout.php"><button type="button" value="logout" tabindex="0" class="dropdown-item"><i class='bx bxs-lock-alt' ></i>
+                     Change Password
+                  </button></a>
 
-                </ul>
-              </li>
-              <li class="dropdown nav-item">
-                <a href="#" class="nav-link" data-toggle="dropdown">
-                 <span class="material-icons">person</span>
-               </a>
-               <ul class="dropdown-menu">
-                <li>
-                  <a href="logout.php">Logout</a>
-                </li>
+                  <a href="../logout.php"><button type="button" value="logout" tabindex="0" class="dropdown-item"><i class='bx bxs-exit bx-rotate-180' ></i>
+                     Logout
+                  </button></a>
+               </div>
+            </div>
 
-              </ul>
-            </li>
-          </ul>
+
+          </div>
         </div>
-      </div>
-    </nav>
-  </div>
-  </div>
+
 </div>
 
 
 
 <div class="main-content">
-
+<div class="row">
+ <?php if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message'])) { ?>
+                        <p class="success"><?php echo $_SESSION['success_message']; ?></p>
+                        <?php
+                        unset($_SESSION['success_message']);
+                    }
+  ?>
+</div>
  <div class="row">
   <div class="col-lg-3 col-md-6 col-sm-6">
     <div class="card card-stats">
@@ -252,49 +250,8 @@ $user = $result->fetch_all(MYSQLI_ASSOC);
 
 </div>
 </section>
+<script type="text/javascript" src="notif.js"></script>
+<script type="text/javascript" src="all.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script>
-  let arrow = document.querySelectorAll(".arrow");
-  for (var i = 0; i < arrow.length; i++) {
-    arrow[i].addEventListener("click", (e)=>{
-   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
-   arrowParent.classList.toggle("showMenu");
- });
-  }
-  let sidebar = document.querySelector(".sidebar");
-  let sidebarBtn = document.querySelector(".bx-menu");
-  console.log(sidebarBtn);
-  sidebarBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("close");
-  });
-
-
-  $(document).ready(function() {
-    $(".search").keyup(function () {
-      var searchTerm = $(".search").val();
-      var listItem = $('.results tbody').children('tr');
-      var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
-
-      $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
-        return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
-      }
-    });
-
-      $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
-        $(this).attr('visible','false');
-      });
-
-      $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
-        $(this).attr('visible','true');
-      });
-
-      var jobCount = $('.results tbody tr[visible="true"]').length;
-      $('.counter').text(jobCount + ' item');
-
-      if(jobCount == '0') {$('.no-result').show();}
-      else {$('.no-result').hide();}
-    });
-  });
-</script>
 </body>
 </html>

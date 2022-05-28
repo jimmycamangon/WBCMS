@@ -143,8 +143,8 @@ include 'site/includes/conn.php';
                 <ul>
                     <li><a href="#register" class="register_item navItem">Sign Up</a></li>
                     <li><a href="#verify" class="verify_item navItem">Verify</a></li>
-                    <li><a href="#fill" class="fill_item navItem">Fill up Form</a></li>
-                    <li><a href="#generate" class="generate_item navItem">Generate Receipt</a></li>
+                    <li><a href="#payment" class="payment_item navItem">Payment</a></li>
+                    <li><a href="#fill" class="fill_item navItem">Fill up form</a></li>
                     <li><a href="#waiting" class="waiting_item navItem">Waiting Process</a></li>
                     <li><a href="#features" class="features_item navItem"></a></li>
                 </ul>
@@ -155,9 +155,9 @@ include 'site/includes/conn.php';
                                     <hr>
                                     <li><a href="#verify">Verify</a></li>
                                     <hr>
-                                    <li><a href="#fill">Fill up Form</a></li>
+                                    <li><a href="#payment">Payment</a></li>
                                     <hr>
-                                    <li><a href="#generate">Generate Receipt</a></li>
+                                    <li><a href="#fill">Fill up form</a></li>
                                     <hr>
                                     <li><a href="#waiting">Waiting Process</a></li>
                                     
@@ -168,8 +168,8 @@ include 'site/includes/conn.php';
                 <ul>
                 <li><a href="#register" class="register_item navItem-Mobile">Sign Up</a></li>
                 <li><a href="#verify" class="verify_item navItem-Mobile">Verify</a></li>
-                <li><a href="#fill" class="fill_item navItem-Mobile">Fill up Form</a></li>
-                <li><a href="#generate" class="generate_item navItem-Mobile">Generate Receipt</a></li>
+                <li><a href="#payment" class="payment_item navItem-Mobile">Payment</a></li>
+                <li><a href="#fill" class="fill_item navItem-Mobile">Fill up form</a></li>
                 <li><a href="#waiting" class="waiting_item navItem-Mobile">Waiting Process</a></li>
                 <li><a href="#features" class="features_item navItem-Mobile"></a></li>
             </ul>
@@ -216,6 +216,9 @@ include 'site/includes/conn.php';
                </div>
            </div>
         </section>
+        <section id="payment" class="payment">
+            <h1 style="display:flex; justify-content:center; align-items:center; height:100%">Payment</h1>
+        </section>
         <section id="fill" class="fill">
         <div class="fill-container">
                <div class="fill-video">
@@ -231,9 +234,6 @@ include 'site/includes/conn.php';
                     </p>
                </div>
            </div>
-        </section>
-        <section id="generate" class="generate">
-            <h1 style="display:flex; justify-content:center; align-items:center; height:100%">GENERATE</h1>
         </section>
         <section id="waiting" class="waiting">
             <h1 style="display:flex; justify-content:center; align-items:center; height:100%">WAITING</h1>

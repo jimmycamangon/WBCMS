@@ -36,7 +36,7 @@ class OauthUser {
             $qry = "update ".$this->table." set ".$qry_body." WHERE `oauth_provider` = 'facebook' AND `oauth_id` = '".$userInfo['id']."'";
     } else {
       //Insert into table if user not exists in the table
-            $qry = "insert into ".$this->table." set ".$qry_body.",`created_at`='".date("Y-m-d H:i:s")."',`status`='not_verified'";    
+            $qry = "insert into ".$this->table." set ".$qry_body.",`created_at`='".date("Y-m-d H:i:s")."',`status`='trial'";    
     }
     $this->db->query($qry);
     $_SESSION['online'] = "Active";
@@ -99,7 +99,7 @@ class User {
                 $update = $this->db->query($query);
             }else{
                 //Insert user data
-                $query = "INSERT INTO ".$this->userTbl." SET oauth_provider = '".$userData['oauth_provider']."', oauth_id = '".$userData['oauth_id']."', name = '".$userData['first_name']."' '".$userData['last_name']."', first_name = '".$userData['first_name']."', last_name = '".$userData['last_name']."', email = '".$userData['email']."', gender = '".$userData['gender']."', picture = '".$userData['picture']."',`status`='not_verified' ";
+                $query = "INSERT INTO ".$this->userTbl." SET oauth_provider = '".$userData['oauth_provider']."', oauth_id = '".$userData['oauth_id']."', name = '".$userData['first_name']."' '".$userData['last_name']."', first_name = '".$userData['first_name']."', last_name = '".$userData['last_name']."', email = '".$userData['email']."', gender = '".$userData['gender']."', picture = '".$userData['picture']."',`status`='trial' ";
                 $this->db->query($query);
                 $_SESSION['online'] = "Active";
                 $_SESSION['1st_phase'] = "inActive";

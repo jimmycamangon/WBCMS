@@ -50,7 +50,9 @@
                 $id=$_SESSION['user_id'];
                 $result = mysqli_query($conn,"SELECT status FROM users WHERE oauth_id = $id");
                 $row  = mysqli_fetch_array($result);
-                  if($row['status'] == 'not_verified') {?>
+                if($row['status'] == 'trial') {?>
+                    <div class="message__not__verified"><i class='bx bxs-error-circle' ></i><h5>Account in First Trial</h5></div>
+                  <?php }if($row['status'] == 'not_verified') {?>
                     <div class="message__not__verified"><i class='bx bxs-error-circle' ></i><h5>Account not Verified</h5></div>
                   <?php } if($row['status'] == 'verified') { ?>
                     <div class="message__verified"><i class='bx bxs-check-circle' ></i><h5>Account Verified</h5></div>
@@ -80,11 +82,20 @@
                 $id=$_SESSION['user_id'];
                 $result = mysqli_query($conn,"SELECT status FROM users WHERE oauth_id = $id");
                 $row  = mysqli_fetch_array($result);
-                  if($row['status'] == 'not_verified') {
+
+                if($row['status'] == 'trial') {?>
+                        <div class="left__box2"> <img src="../assets/img/SVG/Greet2.png" alt="Image"></div>
+                        <div class="right__box2">
+                          <p>Your account is in first trial. After one request, you need to request for verification for full features.</p>
+                          <br>
+                          <a href="verify.php"><button class="Verify"><span> Verify Now</span></button></a>
+                        </div>
+
+                  <?php } if($row['status'] == 'not_verified') {
                       ?>
                         <div class="left__box2"> <img src="../assets/img/SVG/Greet2.png" alt="Image"></div>
                         <div class="right__box2">
-                          <p>Kindly complete all your information including 1 valid id to access all system's feature.</p>
+                          <p>Hi! You have exceeded your first trial, Kindly complete all your information including 1 valid id to access all system's feature.</p>
                           <br>
                           <a href="verify.php"><button class="Verify"><span> Verify </span></button></a>
                         </div>
@@ -232,7 +243,8 @@
                         </li>
                       <?php } ?>
                     </ul>
-                <button class="update"><span>View More</span></button>
+
+                <button class="update" onclick="location.href='view_request.php?oauth_id=<?php echo $row['oauth_id'];?>'"><span> View Request </span></button>
               </section>
                         <?php }
                         } else {

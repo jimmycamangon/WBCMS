@@ -38,6 +38,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             if ($row['user_name'] === $uname && $row['password'] === $pass) {
             	$_SESSION['logged_in_as_admin'] = true;
             	$_SESSION['admin_id'] = $row['id'];
+            	$_SESSION['user_name'] = $row['user_name'];
             	header("Location: ../index.php");
 		        exit();
             }else{

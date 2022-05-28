@@ -77,13 +77,19 @@ if(isset($_POST['cancel'])) {
               <!-- Check if user already requested -->
               <?php 
 
-              $result = mysqli_query($conn,"SELECT status FROM clearance WHERE oauth_id = '$id'");
+              $result = mysqli_query($conn,"SELECT clearance.oauth_id, users.oauth_id, clearance.request_status, users.status FROM clearance INNER JOIN users ON clearance.oauth_id = users.oauth_id WHERE oauth_id = '$id'");
               $row  = mysqli_fetch_assoc($result);
 
-              if($result -> num_rows == 1 AND $row['status'] == 'Pending') {?>
+              if($result -> num_rows == 1 AND $row['request_status'] == 'Pending') {?>
                 <div class="buttons"><label  class="btn" for="check" style="background: #E74B37;"><span>Cancel</span></label></div><p class="pending">Request Pending</p>
 
               <?php } if($result -> num_rows == 1 AND $row['status'] == 'Processing') {?>
+               <p class="pending">Request in Process</p>
+              <?php } if($result -> num_rows == 1 AND $row['status'] == 'trial') {?>
+              <form action="" method="POST">
+                <button type="submit" class="update" name="start"><span> Get Started </span></button>  
+              </form>
+              <?php } if($result -> num_rows == 1 AND $row['status'] == 'not_verified') {?>
                <p class="pending">Request in Process</p>
               <?php } if($result -> num_rows == 0) { ?>
           		<form action="" method="POST">
